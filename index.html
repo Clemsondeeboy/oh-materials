@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oh! Materials</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="font-awesome/css/all.min.css">
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oh! Materials</title>
+
+  <!-- Bootstrap CSS -->
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+  <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+  
+
+  <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="font-awesome/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
+
+    <!-- Logo -->
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="images/logo.png" alt="Oh Materials Logo" height="40" class="me-2">
+    </a>
+
+    <!-- Mobile toggle -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+    </button>
+
+    <!-- Nav Links -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="marketplace.html">Marketplace</a></li>
+        <li class="nav-item"><a class="nav-link" href="vendor.html">Vendors</a></li>
+        <li class="nav-item"><a class="nav-link" href="Pricing.html">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+
+      <!-- Icons -->
+      <div class="d-flex align-items-center gap-3">
+        <!-- Search -->
+        <a href="#" class="text-white p-0">
+          <img src="images/search.png" alt="Search">
+        </a>
+
+        <!-- User (always visible) -->
+        <a href="user-dashboard.html" id="userIcon" class="text-white p-0 active">
+          <img src="images/person.png" alt="User">
+        </a>
+
+        <!-- Cart (only visible when logged in) -->
+        <div id="cartWrapper" class="position-relative d-none">
+          <a href="cart.html" class="text-white p-0">
+            <img src="images/cart.png" alt="Cart">
+          </a>
+          <span id="cart-count"
+            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
+            0
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<!-- Banner Carousel -->
+<div id="bannerCarousel" class="carousel slide carousel-fade banner-carousel" data-bs-ride="carousel" data-bs-interval="4000">
+  <div class="carousel-inner">
+    <div class="carousel-item banner-carousel active" style="background-image: url('images/banner-1.png');"></div>
+    <div class="carousel-item banner-carousel" style="background-image: url('images/banner-2.png');"></div>
+    <div class="carousel-item banner-carousel" style="background-image: url('images/banner-3.png');"></div>
+  </div>
+
+  <!-- Overlay Content (fixed across all slides) -->
+  <div class="banner-overlay">
+    <h1>Smart Procurement for <br> Construction & Real Estate</h1>
+
+    <div class="search-p">
+      <div class="custom-search">
+        <input type="text" placeholder="Search...">
+        <div class="b-prob">
+      <select>
+        <option>Categories</option>
+        <option>Cement</option>
+        <option>Tiles</option>
+        <option>Wood</option>
+      </select>
+      <button type="submit">Search</button>
+    </div>
+    </div>
+  </div>
+    <p>Search, compare, sample, quote and purchase from reliable and trustworthy suppliers</p>
+
+    <div class="tags mt-2">
+      <p>Frequently searched:</p>
+      <span>Cement</span>
+      <span>Tiles</span>
+      <span>Wood</span>
+    </div>
+  </div>
+</div>
+
+
+<section class="category-section">
+  <div class="container">
+    <h6 class="mb-5">Explore Categories</h6>
+    <h2>Discover products by category</h2>
+    <div class="row g-4">
+
+      <!-- Category Item -->
+      <div class="col-md-3 col-sm-6">
+        <div class="category-card">
+          <img src="images/construction.png" alt="">
+          <h5>Construction Materials</h5>
+          <p><span>Cement, Steel, Roofing, Blocks</span></p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="category-card">
+          <img src="images/house.png" alt="">
+          <h5>Real Estate & Property</h5>
+          <p> <span>Lands, Buildings, Rentals</span></p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="category-card">
+          <img src="images/chair.png" alt="">
+          <h5>Interior & Finishing</h5>
+          <p><span>Tiles, Paints, Furniture</span></p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="category-card">
+          <img src="images/electric.png" alt="">
+          <h5>Electrical & Electronic Systems</h5>
+          <p><span>Pipes, Fittings, Cables</span></p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="category-card">
+          <img src="images/forklift.png" alt="">
+          <h5>Mechanical Installation</h5>
+          <p><span>Excavators, Mixers, Rentals</span></p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-6">
+        <div class="category-card">
+          <img src="images/construction.png" alt="">
+          <h5>Professional Services</h5>
+          <p><span>Engineers, Architects, Contractors</span></p>
+        </div>
+      </div>
+      
+      <div class="col-md-3 col-sm-6">
+        <div class="category-card">
+          <img src="images/jacket.png" alt="">
+          <h5>Safety & Accessories</h5>
+          <p><span>Helmets, Gloves, Safety Gear</span></p>
+        </div>
+      </div>
+      
+      <div class="col-md-3 col-sm-6">
+        <div class="category-card">
+          <img src="images/delivery.png" alt="">
+          <h5>Logistics & Delivery</h5>
+          <p><span>Haulage, Site Delivery</span></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="explore-all pb-5">
+<div class="container py-5">
+  <div class="explore">
+  <h5 class="fw-bold">EXPLORE PRODUCTS</h5>
+  <div class="away-link">
+    <a href="#">Trending products</a>
+  </div>
+  </div>
+  <div class="row g-4">
+    
+    <!-- Dangote Cement -->
+    <div class="col-md-3 col-sm-6">
+      <div class="card product-card position-relative" style="border: none !important;">
+        <img src="images/explore-product-1.png" class="product-img" alt="Dangote Cement">
+        <div class="wishlist-icon">
+          <i class="fa-regular fa-heart"></i>
+        </div>
+        <div class="card-body">
+          <h6 class="card-title mb-1">Dangote Cement (50kg)</h6>
+          <p class="text-muted small mb-1">Dangote</p>
+          <p class="price mb-2">£5,800</p>
+          <div class="rating">
+            <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>
+            <span class="text-muted small">(0)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- High-Grade Steel Rods -->
+    <div class="col-md-3 col-sm-6">
+      <div class="card product-card position-relative" style="border: none !important;">
+        <img src="images/explore-product-2.png" class="product-img" alt="Steel Rods">
+        <div class="wishlist-icon"><i class="fa-regular fa-heart"></i></div>
+        <div class="card-body">
+          <h6 class="card-title mb-1">High-Grade Steel Rods</h6>
+          <p class="text-muted small mb-1">Steel Refineries</p>
+          <p class="price mb-2">£50,000 / Ton</p>
+          <div class="rating">
+            <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>
+            <span class="text-muted small">(0)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Italian Floor Tiles -->
+    <div class="col-md-3 col-sm-6">
+      <div class="card product-card position-relative" style="border: none !important;">
+        <img src="images/explore-product-3.png" class="product-img" alt="Italian Floor Tiles">
+        <div class="wishlist-icon"><i class="fa-regular fa-heart"></i></div>
+        <div class="card-body">
+          <h6 class="card-title mb-1">Italian Floor Tiles</h6>
+          <p class="text-muted small mb-1">Tiles and Co.</p>
+          <p class="price mb-2">£12,500 / sqm</p>
+          <div class="rating">
+            <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>
+            <span class="text-muted small">(0)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wood Timber -->
+    <div class="col-md-3 col-sm-6">
+      <div class="card product-card position-relative" style="border: none !important;">
+        <img src="images/explore-product-4.png" class="product-img" alt="Wood Timber">
+        <div class="wishlist-icon"><i class="fa-regular fa-heart"></i></div>
+        <div class="card-body">
+          <h6 class="card-title mb-1">Wood Timber</h6>
+          <p class="text-muted small mb-1">Timber Brothers</p>
+          <p class="price mb-2">£36,000 / Ton</p>
+          <div class="rating">
+            <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>
+            <span class="text-muted small">(0)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Steel Rods (Different Price) -->
+    <div class="col-md-3 col-sm-6">
+      <div class="card product-card position-relative" style="border: none !important;">
+        <img src="images/explore-product-2.png" class="product-img" alt="Steel Rods">
+        <div class="wishlist-icon"><i class="fa-regular fa-heart"></i></div>
+        <div class="card-body">
+          <h6 class="card-title mb-1">High-Grade Steel Rods</h6>
+          <p class="text-muted small mb-1">Steel Refineries</p>
+          <p class="price mb-2">£450,000 / Ton</p>
+          <div class="rating">
+            <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>
+            <span class="text-muted small">(0)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dulux Paint -->
+    <div class="col-md-3 col-sm-6">
+      <div class="card product-card position-relative" style="border: none !important;">
+        <img src="images/explore-product-5.png" class="product-img" alt="Dulux Paint">
+        <div class="wishlist-icon"><i class="fa-regular fa-heart"></i></div>
+        <div class="card-body">
+          <h6 class="card-title mb-1">Dulux Interior Paint</h6>
+          <p class="text-muted small mb-1">Dulux Corp</p>
+          <p class="price mb-2">£35,000 / 20L</p>
+          <div class="rating">
+            <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>
+            <span class="text-muted small">(0)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Italian Tiles (Second Card) -->
+    <div class="col-md-3 col-sm-6">
+      <div class="card product-card position-relative" style="border: none !important;">
+        <img src="images/explore-product-6.png" class="product-img" alt="Italian Floor Tiles">
+        <div class="wishlist-icon"><i class="fa-regular fa-heart"></i></div>
+        <div class="card-body">
+          <h6 class="card-title mb-1">Italian Floor Tiles</h6>
+          <p class="text-muted small mb-1">Tiles and Co.</p>
+          <p class="price mb-2">£12,500 / sqm</p>
+          <div class="rating">
+            <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>
+            <span class="text-muted small">(0)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dangote Cement (Second Card) -->
+    <div class="col-md-3 col-sm-6">
+      <div class="card product-card position-relative" style="border: none !important;">
+        <img src="images/explore-product-1.png" class="product-img" alt="Dangote Cement">
+        <div class="wishlist-icon"><i class="fa-regular fa-heart"></i></div>
+        <div class="card-body">
+          <h6 class="card-title mb-1">Dangote Cement (50kg)</h6>
+          <p class="text-muted small mb-1">Dangote</p>
+          <p class="price mb-2">£5,800</p>
+          <div class="rating">
+            <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>
+            <span class="text-muted small">(0)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<section class="track">
+  <div class="contents">
+    <h1>Track All Construction Materials</h1>
+    <p>Reliable solutions for sourcing and tracking quality construction materials</p>
+    <a href="user-dashboard.html" class="btn btn-custom track-btn">Track now</a>
+  </div>
+</section>
+
+<div class="explore-bg py-5" style="background-color: #f4f4f4;">
+<div class="container py-5  py-5">
+  <div class="explore">
+  <h5 class="fw-bold">EXPLORE VENDORS</h5>
+  <div class="away-link">
+    <a href="#">Top vendors</a>
+  </div>
+  </div>
+  <div class="row g-4">
+    
+    <!-- Dangote Cement -->
+    <div class="col-md-3 col-sm-6">
+      <div class="card product-card position-relative" style="border: none !important;">
+        <img src="images/vendor-1.png" class="product-img" alt="Dangote Cement">
+        <div class="wishlist-icon">
+          <i class="fa-regular fa-heart"></i>
+        </div>
+        <div class="card-body">
+          <h6 class="card-title mb-1">Dangote Cement (50kg)</h6>
+          <a href="#" class="visit mb-1 mt-2">Visit Store</a>
+          <a href="#" class="quote">Request a Quote</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- High-Grade Steel Rods -->
+    <div class="col-md-3 col-sm-6">
+      <div class="card product-card position-relative" style="border: none !important;">
+        <img src="images/vendor-2.png" class="product-img" alt="Steel Rods">
+        <div class="wishlist-icon"><i class="fa-regular fa-heart"></i></div>
+        <div class="card-body">
+          <h6 class="card-title mb-1">High-Grade Steel Rods</h6>
+          <a href="#" class="visit mb-1 mt-2">Visit Store</a>
+          <a href="#" class="quote">Request a Quote</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Italian Floor Tiles -->
+    <div class="col-md-3 col-sm-6">
+      <div class="card product-card position-relative" style="border: none !important;">
+        <img src="images/vendor-3.png" class="product-img" alt="Italian Floor Tiles">
+        <div class="wishlist-icon"><i class="fa-regular fa-heart"></i></div>
+        <div class="card-body">
+          <h6 class="card-title mb-1">Italian Floor Tiles</h6>
+          <a href="#" class="visit mb-1 mt-2">Visit Store</a>
+          <a href="#" class="quote">Request a Quote</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wood Timber -->
+    <div class="col-md-3 col-sm-6">
+      <div class="card product-card position-relative" style="border: none !important;">
+        <img src="images/vendor-4.png" class="product-img" alt="Wood Timber">
+        <div class="wishlist-icon"><i class="fa-regular fa-heart"></i></div>
+        <div class="card-body">
+          <h6 class="card-title mb-1">Wood Timber</h6>
+          <a href="#" class="visit mb-1 mt-2">Visit Store</a>
+          <a href="#" class="quote">Request a Quote</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="container-fluid lg-mt-5 py-5 lg-mb-5">
+  <div class="order-ad">
+    <img src="images/order.png" alt="">
+  </div>
+</div>
+
+<div class="container grow d-flex align-items-center mt-5 mb-5">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="grow-content mt-5">
+        <div class="grow-head mt-5 mb-3"><h1>Grow your business with <span>Oh! Materials</span></h1></div>
+        <div class="grow-p mt-4">
+          <p class="mb-2">
+            Our intuitive platform makes it easy to showcase your products and services to a wide audience of buyers. From building materials and equipment to specialized services, Oh! Materials gives you the right space to promote your offerings, connect with ready customers, and grow your presence in the industry.
+          </p>
+          <a href="#" class="vends-btn btn btn-custom">Register as a Vendor</a>
+          <a href="#" class="vend-btn btn btn-custom">Explore Marketplace</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="grow-img">
+        <img src="images/grow-img.png" alt="" class="img-fluid">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt-5 py-5 mb-5">
+  <div class="order-ad">
+    <img src="images/order2.png" alt="">
+  </div>
+</div>
+
+
+<div class="testimonial-section">
+  <h6 class="text-uppercase text-muted mb-3">Testimonials</h6>
+  <h2 class="mb-5">Hear from our lovely customers</h2>
+
+  <div class="testimonial-quote mb-5">
+    <img src="images/testimonial-quote.png" alt="" class="img-fluid">
+  </div>
+
+  <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-customer="0">
+        <p class="testimonial-quote">
+          Oh! Materials has completely changed the way I shop and sell. I discovered vendors I never knew existed, and the process is so smooth. Payments are secure, delivery is fast, and I always feel confident I’m getting value for my money. As a vendor, I’ve also gained more visibility and new customers every week. Oh! Materials is truly bridging the gap between local sellers and buyers.
+        </p>
+        <div class="testimonial-author">— Amaka O</div>
+        <div class="testimonial-role">Verified Buyer & Vendor</div>
+      </div>
+
+      <div class="carousel-item" data-customer="1">
+        <p class="testimonial-quote">
+          I love how easy it is to use the platform. Connecting with sellers is simple, and I feel secure every time I buy or sell.
+        </p>
+        <div class="testimonial-author">— Daniel K</div>
+        <div class="testimonial-role">Verified Buyer</div>
+      </div>
+
+      <div class="carousel-item" data-customer="2">
+        <p class="testimonial-quote">
+          Oh! Materials gave my small business a new level of exposure. I get orders every week now, and I couldn’t be happier.
+        </p>
+        <div class="testimonial-author">— Sarah T</div>
+        <div class="testimonial-role">Vendor</div>
+      </div>
+
+      <div class="carousel-item" data-customer="3">
+        <p class="testimonial-quote">
+          I love how easy it is to use the platform. Connecting with sellers is simple, and I feel secure every time I buy or sell.
+        </p>
+        <div class="testimonial-author">— Daniel K</div>
+        <div class="testimonial-role">Verified Buyer</div>
+      </div>
+
+      <div class="carousel-item" data-customer="4">
+        <p class="testimonial-quote">
+          Oh! Materials gave my small business a new level of exposure. I get orders every week now, and I couldn’t be happier.
+        </p>
+        <div class="testimonial-author">— Sarah T</div>
+        <div class="testimonial-role">Vendor</div>
+      </div>
+
+      
+      <div class="carousel-item" data-customer="5">
+        <p class="testimonial-quote">
+          I love how easy it is to use the platform. Connecting with sellers is simple, and I feel secure every time I buy or sell.
+        </p>
+        <div class="testimonial-author">— Daniel K</div>
+        <div class="testimonial-role">Verified Buyer</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="customer-imgs d-flex justify-content-center flex-wrap">
+    <img src="images/testimonial-1.png" class="active" alt="Amaka">
+    <img src="images/testimonial-2.png" alt="Daniel">
+    <img src="images/testimonial-3.png" alt="Daniel">
+    <img src="images/testimonial-4.png" alt="Daniel">
+    <img src="images/testimonial-5.png" alt="Sarah">
+  </div>
+</div>
+
+<section class="newsletter-section">
+  <div class="newsletter-box">
+    <h3>Get the best deals first</h3>
+    <p>Join our newsletter to receive updates on new materials, vendor promos, and sourcing tips</p>
+
+    <form class="newsletter-form">
+      <div class="row g-2 justify-content-center">
+        <div class="col-md-7 col-sm-12">
+          <input type="email" class="form-control" placeholder="Enter your email" required>
+        </div>
+        <div class="col-md-3 col-sm-12">
+          <button type="submit" class="btn btn-subscribe w-100">Subscribe</button>
+        </div>
+      </div>
+    </form>
+
+    <small>By subscribing, you agree to receive marketing emails from Oh! Materials. You can unsubscribe anytime.</small>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="row gy-4">
+      <!-- Logo & About -->
+      <div class="col-lg-3 col-md-6">
+        <img src="images/logo.png" alt="Oh! Materials" style="max-width:150px;">
+        <p class="mt-3 footer-p">Smart procurement platform for construction materials, connecting vendors and buyers across London.</p>
+        <div class="social-icons mt-3">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+          <a href="#"><i class="fab fa-x-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-lg-3 col-md-6">
+        <h5>Quick links</h5>
+        <ul class="list-unstyled">
+          <li><a href="#">Home</a></li>
+          <li><a href="marketplace.html">Marketplace</a></li>
+          <li><a href="vendor.html">Vendors</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Support -->
+      <div class="col-lg-3 col-md-6">
+        <h5>Support</h5>
+        <ul class="list-unstyled">
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="col-lg-3 col-md-6">
+        <h5>Contact</h5>
+        <p>Email: support@oh!materials.com</p>
+        <p>Phone: +234 807 184 0381</p>
+      </div>
+    </div>
+
+    <div class="copyright">
+      © 2025 Oh! Materials. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+
+<!-- Bootstrap JS -->
+<script src="dist/js/bootstrap.min.js"></script>
+<script src="js/script.js"></script>
+<script src="js/marketplace.js"></script>
+
+
+<script>
+  const carousel = document.getElementById('testimonialCarousel');
+  const customerImgs = document.querySelectorAll('.customer-imgs img');
+
+  carousel.addEventListener('slide.bs.carousel', function (event) {
+    customerImgs.forEach(img => img.classList.remove('active'));
+    const nextIndex = event.to;
+    customerImgs[nextIndex].classList.add('active');
+  });
+
+  customerImgs.forEach((img, index) => {
+    img.addEventListener('click', () => {
+      const carouselObj = bootstrap.Carousel.getInstance(carousel);
+      carouselObj.to(index);
+    });
+  });
+</script>
+<!-- <script>
+  // Ensure the carousel autoplays and the active indicator border reflects the avatar's custom color.
+  document.addEventListener('DOMContentLoaded', function () {
+    const carouselEl = document.getElementById('testimonialCarousel');
+    // Initialize via JS (redundant if data-bs-ride present, but guarantees it's started)
+    const carousel = new bootstrap.Carousel(carouselEl, {
+      interval: 5000,
+      ride: 'carousel',
+      pause: false
+    });
+
+    const indicators = Array.from(carouselEl.querySelectorAll('.carousel-indicators button'));
+
+    function updateIndicatorBorders() {
+      indicators.forEach(btn => {
+        btn.style.borderColor = 'transparent';
+        btn.style.opacity = '.6';
+      });
+      const active = carouselEl.querySelector('.carousel-indicators button.active');
+      if (active) {
+        const color = active.dataset.border || '#f9b233';
+        active.style.borderColor = color;
+        active.style.opacity = '1';
+      }
+    }
+
+    // Initial update
+    updateIndicatorBorders();
+
+    // Update after each slide transition
+    carouselEl.addEventListener('slid.bs.carousel', updateIndicatorBorders);
+
+    // Also update when user clicks indicator (sliding might be instant in some cases)
+    indicators.forEach(btn => {
+      btn.addEventListener('click', () => setTimeout(updateIndicatorBorders, 80));
+    });
+  });
+</script> -->
+</body>
+</html>

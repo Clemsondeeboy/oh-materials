@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Oh Materials</title>
+  <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  <!-- Navbar -->
+
+  
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+<div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand d-flex align-items-center" href="#">
+    <img src="images/logo.png" alt="Oh Materials Logo" height="40" class="me-2">
+    </a>
+
+    <!-- Mobile toggle -->
+<!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button> -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+    </button>
+
+    <!-- Nav Links -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="marketplace.html">Marketplace</a></li>
+        <li class="nav-item"><a class="nav-link" href="vendor.html">Vendors</a></li>
+        <li class="nav-item"><a class="nav-link" href="Pricing.html">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+    </ul>
+
+    <!-- Icons -->
+    <div class="d-flex social">
+      <a href="#" class="nav-link text-white">
+        <img src="images/search.png" alt="">
+      </a>
+      <a href="#" id="userIcon" class="text-white p-0">
+          <img src="images/person.png" alt="User">
+        </a>
+      <!-- <div class="position-relative">
+      <a href="cart.html" class="nav-link text-white"><img src="images/cart.png" alt=""></a>
+      <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">0</span>
+    </div> -->
+    </div>
+    </div>
+</div>
+</nav>
+
+   
+  <!-- <div class="login-box">
+    <h2>Welcome Back</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+    <p class="text-small mt-3">Don't have an account? <a href="#">Sign up</a></p>
+  </div> -->
+
+   <!-- Main Section -->
+  <section class="login-section d-flex align-items-center justify-content-center">
+    <div class="container py-5">
+      <div class="row align-items-center">
+        
+        <!-- Left Text Section -->
+        <div class="col-lg-5 col-md-12 mb-5 mb-lg-0 text-center text-lg-start">
+          <div class="logo mb-4">
+            <img src="images/logo.png" alt="Oh! Materials Logo" class="img-fluid" style="max-width: 200px;">
+          </div>
+          <h2 class="welcome-text">
+            Welcome to <span class="highlight-yellow">Oh!</span><br>
+            <span class="highlight-green">Materials</span>
+          </h2>
+          <p class="description">
+            Find everything you need for your next project, from trusted local suppliers to premium building materials, all in one place. Log in to continue shopping, track your orders, and manage your deliveries with ease.
+          </p>
+        </div>
+
+        <!-- Right Login Card -->
+        <div class="col-lg-7 col-md-12 py-5">
+          <div class="card login-card shadow-sm mx-auto">
+            <div class="card-body p-4 p-md-5">
+              <h5 class="card-title text-center fw-bold mb-3">User Login</h5>
+              <p class="text-center text-muted mb-4">Sign in to access your dashboard</p>
+
+              <form id="loginForm">
+                <div class="mb-3">
+                  <label class="form-label"><i class="fa-regular fa-envelope me-2"></i>Email address</label>
+                  <input type="email" class="form-control" placeholder="example@gmail.com" id="username">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label"><i class="fa-solid fa-lock me-2"></i>Password</label>
+                  <input type="password" class="form-control" placeholder="********" id="password">
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <div>
+                    <input type="checkbox" id="remember" class="form-check-input me-2">
+                    <label for="remember" class="form-check-label">Remember me</label>
+                  </div>
+                  <a href="#" class="text-decoration-none forgot-password">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="btn btn-signin w-100">
+                  <i class="fa-solid fa-right-to-bracket me-2"></i>Sign in
+                </button>
+              </form>
+
+              <div class="text-center mt-4">
+                <p class="mb-3 text-muted">Don’t have an account? 
+                  <a href="#" class="register-link">Register now</a>
+                </p>
+                <a href="vendor.html" class="vendor-login">Login as vendor</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

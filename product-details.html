@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Oh! Materials - Product Page</title>
+
+    <!-- Keep your local bootstrap/fontawesome if you want (I've left those links commented — use your local files if available) -->
+    <!-- <link href="dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <!-- <link href="font-awesome/css/all.min.css" rel="stylesheet"> -->
+
+    <!-- CDN fallbacks (one set only) -->
+     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: #f5f5f5;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .navbar {
+            background-color: transparent;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand img {
+            height: 40px;
+        }
+
+        .product-wrapper {
+            margin-top: 120px;
+        }
+
+        .product-section {
+            background: #fff;
+            border-radius: 10px;
+            padding: 2rem;
+        }
+
+        .product-images img {
+            border-radius: 10px;
+        }
+
+        .thumbnail img {
+            width: 115px;
+            height: 115px;
+            object-fit: cover;
+            margin-right: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            transition: .2s;
+        }
+
+        .thumbnail img:hover {
+            border-color: #2e7d32;
+            transform: translateY(-3px);
+        }
+
+        .price {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #2e7d32;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #888;
+            margin-left: 10px;
+        }
+
+        .btn-add-cart {
+            background: #2e7d32;
+            color: #fff;
+            border-radius: 8px;
+            font-weight: 600;
+            width: 100%;
+            padding: 10px 14px;
+        }
+
+        .btn-quote {
+            background: #fff;
+            border: 1px solid #2e7d32;
+            color: #2e7d32;
+            border-radius: 8px;
+            font-weight: 600;
+            width: 100%;
+            padding: 10px 14px;
+        }
+
+        .btn-add-cart:hover {
+            background: #256628;
+        }
+
+        .btn-quote:hover {
+            background: #eaf6ef;
+        }
+
+        /* Tabs */
+        .nav-tabs .nav-link {
+            color: #333;
+            font-weight: 500;
+        }
+
+        .nav-tabs .nav-link.active {
+            border-bottom: 3px solid #009879;
+            color: #009879;
+            font-weight: 600;
+        }
+
+        .tab-content {
+            background: #fff;
+            border: 1px solid #eee;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            padding: 20px;
+            margin-bottom: 40px;
+        }
+
+        /* Footer Buttons */
+        .footer-btns .btn {
+            border-radius: 8px;
+            font-size: 0.9rem;
+            margin-right: 10px;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 12px;
+            /* text-align: center; */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            transition: .3s;
+        }
+
+        .product-card img {
+            border-radius: 8px;
+            height: 150px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .recommend-title {
+            font-weight: 600;
+            margin: 40px 0 20px;
+        }
+
+        /* Two-button group on right column */
+        .btn-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        @media (max-width:767px) {
+            .btn-row {
+                flex-direction: column;
+            }
+        }
+        .product-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 15px;
+  /* text-align: center; */
+  transition: 0.3s;
+}
+
+.product-card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 2px #256628 solid;
+}
+
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="images/logo.png" alt="Oh Materials Logo" height="40" class="me-2">
+            </a>
+    
+            <!-- Mobile toggle -->
+            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button> -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
+    
+            <!-- Nav Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="marketplace.html">Marketplace</a></li>
+                    <li class="nav-item"><a class="nav-link" href="vendor.html">Vendors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Pricing.html">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+    
+                <!-- Icons -->
+                <div class="d-flex social">
+                    <a href="#" class="nav-link text-white"><img src="images/search.png" alt=""></a>
+                    <a href="login.html" class="nav-link text-white"><img src="images/person.png" alt=""></a>
+                    <div class="position-relative">
+                        <a href="cart.html" class="nav-link text-white"><img src="images/cart.png" alt=""></a>
+                        <span id="cart-count"
+                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Product Section -->
+    <div class="container product-wrapper">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#" class="text-decoration-none text-muted">Home</a></li>
+                <li class="breadcrumb-item"><a href="#" class="text-decoration-none text-muted">Wood</a></li>
+                <li class="breadcrumb-item"><a href="#" class="text-decoration-none text-muted">Planks</a></li>
+                <li class="breadcrumb-item active">Premium Mahogany Wood Plank – Smooth Finish (2 x 6 x 12 ft)</li>
+            </ol>
+        </nav>
+
+        <div class="row g-4">
+            <!-- Left -->
+            <div class="col-lg-6">
+                <div class="product-section">
+                    <img id="mainImage" src="images/stack-wooden.jpg" alt="Product"
+                        class="img-fluid mb-3 product-images">
+                    <div class="d-flex thumbnail">
+                        <img class="img-fluid" src="images/stack-wooden.jpg" onclick="changeImage(this)">
+                        <img class="img-fluid" src="images/save-5.png" onclick="changeImage(this)">
+                        <img class="img-fluid" src="images/save-2.png" onclick="changeImage(this)">
+                        <img class="img-fluid" src="images/tiles.jpg" onclick="changeImage(this)">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right -->
+            <div class="col-lg-6">
+                <div class="product-section">
+                    <!-- Important: ensure id present for JS -->
+                    <h4 id="productTitle">Premium Mahogany Wood Plank – Smooth Finish (2.6 x 12 ft)</h4>
+
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star-half-alt text-warning"></i>
+                        <small class="text-muted ms-2">(24 reviews)</small>
+                    </div>
+
+                    <p class="mb-1"><strong>Vendor:</strong> <span class="text-muted">Timber Supply Co.</span></p>
+                    <div class="price mt-2">£89.99 <span class="old-price">£135.00</span></div>
+                    <small class="text-success d-block mb-2">Save up to 10% with bulk pricing</small>
+                    <small class="text-muted">Available: <span class="text-success fw-bold">72 in stock</span></small>
+
+                    <div class="d-flex  mt-3 mb-3">
+                        <button class="btn btn-outline-secondary" id="qty-dec">-</button>
+                        <input type="text" value="1" id="qty-input" class="form-control text-center mx-2"
+                            style="width:70px;">
+                        <button class="btn btn-outline-secondary" id="qty-inc">+</button>
+                    </div>
+
+                    <!-- buttons row: Add to Cart + Request Quote -->
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-add-cart mt-2" id="addToCartBtn">Add to Cart</button>
+                        <button class="btn btn-quote" id="requestQuoteBtn" data-bs-toggle="modal"
+                            data-bs-target="#quoteModal">
+                            <i class="fa fa-file-alt me-2"></i>Request Quote
+                        </button>
+                    </div>
+
+                    <!-- small action row -->
+                    <div class="d-flex gap-3 mt-3">
+                        <small class="text-muted">Delivery: Door Delivery (3–6 days)</small>
+                        <small class="text-muted">•</small>
+                        <small class="text-muted">Availability: In stock</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <ul class="nav nav-tabs mt-5">
+        <li class="nav-item">
+            <a class="nav-link active" data-bs-toggle="tab" href="#description">Description</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#specs">Specifications</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#reviews">Reviews</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#vendor">About Vendor</a>
+        </li>
+    </ul>
+    
+    <div class="tab-content bg-white p-4 rounded-bottom shadow-sm">
+        <!-- ✅ Description Tab -->
+        <div class="tab-pane fade show active" id="description">
+            <p>
+                These mahogany planks are sourced from sustainable suppliers and kiln-dried for
+                dimensional stability. Each plank is planed, sanded and treated for termite resistance,
+                suitable for interior flooring and premium exterior details when properly sealed.
+            </p>
+            <ul>
+                <li>Coverage estimate: 0.8 sqm per plank (depending on cut/waste)</li>
+                <li>Handling: store flat in a dry area, acclimatize for 48 hours</li>
+                <li>Installation notes: recommended finish & sealing for exterior use</li>
+            </ul>
+    
+            <!-- ✅ Only appears in Description -->
+            <div class="footer-btns mt-4">
+                <button class="btn btn-outline-dark">
+                    <i class="fa fa-download me-2"></i>Download Datasheet
+                </button>
+                <button class="btn btn-outline-secondary">
+                    <i class="fa fa-share-nodes me-2"></i>Share Product
+                </button>
+            </div>
+        </div>
+    
+        <!-- Specifications Tab -->
+        <div class="tab-pane fade" id="specs">
+            <p>Full material specifications and safety information here...</p>
+        </div>
+    
+        <!-- Reviews Tab -->
+        <div class="tab-pane fade" id="reviews">
+            <p>Customer reviews section coming soon...</p>
+        </div>
+    
+        <!-- Vendor Tab -->
+        <div class="tab-pane fade" id="vendor">
+            <p>Vendor details and profile summary.</p>
+        </div>
+    </div>
+
+    <!-- Why Buyers Choose This -->
+    <section class="mt-5">
+        <div class="p-4 rounded shadow-sm" style="background:#f8fdfb;">
+            <h5 class="fw-semibold mb-3">Why buyers choose this</h5>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="list-unstyled mb-0">
+                        <li>• Precision kiln-drying for improved stability</li>
+                        <li>• Termite resistant treatment applied</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul class="list-unstyled mb-0">
+                        <li>• Sustainable sourcing & verified supply chain</li>
+                        <li>• Ready for immediate dispatch from the warehouse</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Customers Who Viewed This Also Viewed -->
+    <section class="mt-5">
+        <h5 class="fw-semibold mb-3">Customers who viewed this also viewed</h5>
+        <div class="row g-3">
+            <!-- Product Card -->
+            <div class="col-6 col-md-3">
+                <div class="product-card">
+                    <img src="images/stack-wooden.jpg" alt="">
+                    <h5 class="mt-2">Mahogany Wood Plank</h5>
+                    <h6 class="text-success">£36.45</h6>
+                    <h5 class="text-danger small">Out of stock</h5>
+                    <h6>WoodMart</h6>
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star-half-alt text-warning"></i>
+                        <small class="text-muted ms-2">4.5</small>
+                    </div>
+                    <div class="d-flex justify-content-center gap-2">
+                        <button class="btn btn-outline-success btn-sm">Add to cart</button>
+                        <button class="btn btn-outline-secondary btn-sm">Request quote</button>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="col-6 col-md-3">
+                <div class="product-card">
+                    <img src="images/" alt="">
+                    <h5 class="mt-2">Lafarge Cement 25kg</h5>
+                    <h6 class="text-success">£65.75</h6>
+                    <h6 class="text-success small">In Stock</h6>
+                    <h6>MegaBuild</h6>
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star-half-alt text-warning"></i>
+                        <small class="text-muted ms-2">4.5</small>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-outline-success btn-sm">Add to cart</button>
+                        <button class="btn btn-outline-secondary btn-sm">Request quote</button>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="col-6 col-md-3">
+                <div class="product-card">
+                    <img src="images/iron-rod.jpg" alt="">
+                    <h5 class="mt-2">12mm Iron Rod</h5>
+                    <h6 class="text-success">£49.99</h6>
+                    <h6 class="text-success small">In Stock</h6>
+                    <h6>SteelSupreme</h6>
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star-half-alt text-warning"></i>
+                        <small class="text-muted ms-2">4.5</small>
+                    </div>
+                    <div class="d-flex justify-content-center gap-2">
+                        <button class="btn btn-outline-success btn-sm">Add to cart</button>
+                        <button class="btn btn-outline-secondary btn-sm">Request quote</button>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="col-6 col-md-3">
+                <div class="product-card">
+                    <img src="images/tiles.jpg" alt="">
+                    <h6 class="mt-2">Italian Ceramic Floor Tiles</h6>
+                    <p class="text-success">£130.89 / sqm</p>
+                    <p class="text-success small">In Stock</p>
+                    <h6>TileWorld</h6>
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star-half-alt text-warning"></i>
+                        <small class="text-muted ms-2">4.5</small>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-outline-success btn-sm">Add to cart</button>
+                        <button class="btn btn-outline-secondary btn-sm">Request quote</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- More Items from This Vendor -->
+    <section class="mt-5">
+        <h5 class="fw-semibold mb-3">More items from this vendor</h5>
+        <div class="row g-3">
+            <div class="col-6 col-md-3">
+                <div class="product-card">
+                    <img src="images/tiles.jpg" alt="">
+                    <h6 class="mt-2">Italian Ceramic Floor Tiles</h6>
+                    <p class="text-success">£130.89 / sqm</p>
+                    <p class="text-success small">In Stock</p>
+                    <h6>TileWorld</h6>
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star-half-alt text-warning"></i>
+                        <small class="text-muted ms-2">4.5</small>
+                    </div>
+                    <div class="d-flex justify-content-center gap-2">
+                        <button class="btn btn-outline-success btn-sm">Add to cart</button>
+                        <button class="btn btn-outline-secondary btn-sm">Request quote</button>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="col-6 col-md-3">
+                <div class="product-card">
+                    <img src="images/iron-rod.jpg" alt="">
+                    <h6 class="mt-2">12mm Iron Rod</h6>
+                    <p class="text-success">£49.99</p>
+                    <p class="text-success small">In Stock</p>
+                    <h6>SteelSupreme</h6>
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star-half-alt text-warning"></i>
+                        <small class="text-muted ms-2">4.5</small>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-outline-success btn-sm">Add to cart</button>
+                        <button class="btn btn-outline-secondary btn-sm">Request quote</button>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="col-6 col-md-3">
+                <div class="product-card">
+                    <img src="images/cement.jpg" alt="">
+                    <h6 class="mt-2">Lafarge Cement 25kg</h6>
+                    <p class="text-success">£65.75</p>
+                    <p class="text-success small">In Stock</p>
+                    <h6>MegaBuild</h6>
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star-half-alt text-warning"></i>
+                        <small class="text-muted ms-2">4.5</small>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-outline-success btn-sm">Add to cart</button>
+                        <button class="btn btn-outline-secondary btn-sm">Request quote</button>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="col-6 col-md-3">
+                <div class="product-card">
+                    <img src="images/stack-wooden.jpg" alt="">
+                    <h6 class="mt-2">Mahogany Wood Plank</h6>
+                    <p class="text-success">£36.45</p>
+                    <p class="text-danger small">Out of stock</p>
+                    <h6>WoodMart</h6>
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star-half-alt text-warning"></i>
+                        <small class="text-muted ms-2">4.5</small>
+                    </div>
+                    <div class="d-flex  gap-2">
+                        <button class="btn btn-outline-success btn-sm">Add to cart</button>
+                        <button class="btn btn-outline-secondary btn-sm">Request quote</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RECENT VIEWD -->
+    <section class="mt-5 mb-5">
+        <h5 class="fw-semibold mb-3">Your Recently Viewed Items</h5>
+        <div class="row g-3">
+            <div class="col-6 col-md-3">
+                <div class="product-card">
+                    <img src="images/cement.jpg" alt="">
+                    <h6 class="mt-2">Lafarge Cement 25kg</h6>
+                    <p class="text-success">£65.75</p>
+                    <p class="text-success small">In Stock</p>
+                    <h6>MegaBuild</h6>
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star-half-alt text-warning"></i>
+                        <small class="text-muted ms-2">4.5</small>
+                    </div>
+                    <div class="d-flex  gap-2">
+                        <button class="btn btn-outline-success btn-sm">Add to cart</button>
+                        <button class="btn btn-outline-secondary btn-sm">Request quote</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-6 col-md-3">
+                <div class="product-card">
+                    <img src="images/stack-wooden.jpg" alt="">
+                    <h6 class="mt-2">Mahogany Wood Plank</h6>
+                    <p class="text-success">£36.45</p>
+                    <p class="text-danger small">Out of stock</p>
+                    <h6>WoodMart</h6>
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star text-warning"></i>
+                        <i class="fa fa-star-half-alt text-warning"></i>
+                        <small class="text-muted ms-2">4.5</small>
+                    </div>
+                    <div class="d-flex  gap-2">
+                        <button class="btn btn-outline-success btn-sm">Add to cart</button>
+                        <button class="btn btn-outline-secondary btn-sm">Request quote</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>     
+
+
+    <!-- Quote Modal -->
+    <div class="modal fade" id="quoteModal" tabindex="-1" aria-labelledby="quoteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="quoteModalLabel">Request a Quote</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="quoteForm">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label">Full name</label>
+                            <input type="text" class="form-control" id="qName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" id="qEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Phone</label>
+                            <input type="tel" class="form-control" id="qPhone">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Message / Requirements</label>
+                            <textarea class="form-control" id="qMessage" rows="3"
+                                required>Hi — I'd like a quote for: Premium Mahogany Wood Plank (2.6 x 12 ft). Quantity:</textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-success">Send Request</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row gy-4">
+                <!-- Logo & About -->
+                <div class="col-lg-3 col-md-6">
+                    <img src="images/logo.png" alt="Oh! Materials" style="max-width: 150px" />
+                    <p class="mt-3 footer-p">
+                        Smart procurement platform for construction materials, connecting
+                        vendors and buyers across London.
+                    </p>
+                    <div class="social-icons mt-3">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+    
+                <!-- Quick Links -->
+                <div class="col-lg-3 col-md-6">
+                    <h5>Quick links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="marketplace.html">Marketplace</a></li>
+                        <li><a href="vendor.html">Vendors</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Support -->
+                <div class="col-lg-3 col-md-6">
+                    <h5>Support</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Contact -->
+                <div class="col-lg-3 col-md-6">
+                    <h5>Contact</h5>
+                    <p>Email: support@oh!materials.com</p>
+                    <p>Phone: +234 807 184 0381</p>
+                </div>
+            </div>
+    
+            <div class="copyright">© 2025 Oh! Materials. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="dist/js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/marketplace.js"></script>
+    <!-- Scripts (single bootstrap include) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // single changeImage implementation
+        function changeImage(e) {
+            const img = document.getElementById('mainImage');
+            if (img && e && e.src) img.src = e.src;
+        }
+
+        // Simple quantity controls
+        const qtyInc = document.getElementById('qty-inc');
+        const qtyDec = document.getElementById('qty-dec');
+        const qtyInput = document.getElementById('qty-input');
+
+        if (qtyInc) qtyInc.addEventListener('click', () => {
+            qtyInput.value = Math.max(1, parseInt(qtyInput.value || '1') + 1);
+        });
+        if (qtyDec) qtyDec.addEventListener('click', () => {
+            qtyInput.value = Math.max(1, parseInt(qtyInput.value || '1') - 1);
+        });
+
+        // Cart handling
+        const cartCount = document.getElementById('cart-count');
+        const addToCartBtn = document.getElementById('addToCartBtn');
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function updateCartCount() {
+            if (!cartCount) return;
+            const total = cart.reduce((s, i) => s + (i.quantity || 0), 0);
+            cartCount.textContent = total;
+        }
+
+        function saveCart() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+        }
+
+        if (addToCartBtn) {
+            addToCartBtn.addEventListener('click', () => {
+                const titleEl = document.getElementById('productTitle');
+                const product = {
+                    name: titleEl ? titleEl.textContent.trim() : 'Product',
+                    price: 89.99,
+                    image: document.getElementById('mainImage') ? document.getElementById('mainImage').src : '',
+                    quantity: Math.max(1, parseInt(document.getElementById('qty-input').value || '1'))
+                };
+                const existing = cart.find(p => p.name === product.name);
+                if (existing) existing.quantity += product.quantity;
+                else cart.push(product);
+                saveCart();
+                showTempMessage('✅ Added to cart');
+            });
+        }
+
+        // recommended items
+        document.querySelectorAll('.add-reco').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const name = btn.dataset.name || 'Item';
+                const price = parseFloat(btn.dataset.price || '0');
+                const product = { name, price, image: 'images/stack-wooden.jpg', quantity: 1 };
+                const existing = cart.find(p => p.name === product.name);
+                if (existing) existing.quantity++;
+                else cart.push(product);
+                saveCart();
+                showTempMessage('✅ Added to cart');
+            });
+        });
+
+        updateCartCount();
+
+        // Temporary small message (bottom-right)
+        function showTempMessage(text) {
+            const el = document.createElement('div');
+            el.textContent = text;
+            el.style.position = 'fixed';
+            el.style.right = '18px';
+            el.style.bottom = '18px';
+            el.style.background = '#222';
+            el.style.color = '#fff';
+            el.style.padding = '10px 14px';
+            el.style.borderRadius = '8px';
+            el.style.boxShadow = '0 6px 18px rgba(0,0,0,0.2)';
+            el.style.zIndex = 1200;
+            document.body.appendChild(el);
+            setTimeout(() => {
+                el.style.transition = 'opacity .4s';
+                el.style.opacity = 0;
+                setTimeout(() => el.remove(), 400);
+            }, 1800);
+        }
+
+        // Quote form handling (modal)
+        const quoteForm = document.getElementById('quoteForm');
+        if (quoteForm) {
+            quoteForm.addEventListener('submit', (evt) => {
+                evt.preventDefault();
+                const name = document.getElementById('qName').value.trim();
+                const email = document.getElementById('qEmail').value.trim();
+                const message = document.getElementById('qMessage').value.trim();
+                if (!name || !email || !message) { alert('Please fill required fields.'); return; }
+
+                const modalEl = document.getElementById('quoteModal');
+                const modal = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
+                modal.hide();
+
+                showTempMessage('✅ Quote request sent — we will contact you soon');
+                quoteForm.reset();
+            });
+        }
+    </script>
+</body>
+
+</html>
