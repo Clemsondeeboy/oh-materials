@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oh! Materials | Track-product</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="user-dashboard.css">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="images/logo.png" alt="Oh Materials Logo" height="40" class="me-2">
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="marketplace.html">Marketplace</a></li>
+          <li class="nav-item"><a class="nav-link" href="vendor.html">Vendors</a></li>
+          <li class="nav-item"><a class="nav-link" href="Pricing.html">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="d-flex social">
+          <a href="#" class="nav-link text-white"><img src="images/search.png" alt=""></a>
+          <a href="login.html" class="nav-link text-white active"><img src="images/person.png" alt=""></a>
+          <div class="position-relative">
+            <a href="cart.html" class="nav-link text-white"><img src="images/cart.png" alt=""></a>
+            <span id="cart-count"
+              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Section -->
+  <section id="quote-section">
+    <div class="container my-5">
+      <div class="d-flex justify-content-between align-items-start mb-4">
+        <div>
+          <h3 class="fw-bold mb-1">Document upload</h3>
+          <p class="text-muted mb-0">
+            Drop your Excel/CSV invoice or upload images. Map columns if your
+            file differs from our template.
+          </p>
+        </div>
+
+        <div class="d-flex gap-2">
+          <button class="btn btn-light shadow-sm" id="uploadBtn">
+            Upload .xls
+          </button>
+
+          <button class="btn btn-template shadow-sm">
+            Download template
+          </button>
+        </div>
+      </div>
+
+      <!-- Upload Card -->
+      <div id="upload-section">
+        <div class="card border-0 shadow-sm p-4">
+          <h5 class="fw-semibold mb-1">Drop file here</h5>
+          <p class="text-muted small mb-4">
+            Select file from computer and drop here
+          </p>
+
+          <!-- Drop Zone -->
+          <div class="drop-zone text-center" id="dropZone">
+            <div class="drop-content">
+              <div class="upload-icon mb-3">☁️</div>
+              <p class="mb-1 fw-medium">
+                Drag & drop document here, or
+                <span class="browse">click to browse</span>
+              </p>
+              <p class="small text-muted">.xls up to 10MB each</p>
+            </div>
+            <input type="file" id="fileInput" visible accept=".xls,.xlsx,.csv">
+          </div>
+        </div>
+      </div>
+
+      <!-- Materials Table -->
+      <div id="materials-section" class="d-none">
+        <div class="card border-0 shadow-sm p-4">
+          <div class="table-responsive">
+            <table class="table align-middle material-table">
+              <thead>
+                <tr>
+                  <th>Select</th>
+                  <th>Material</th>
+                  <th>Qty</th>
+                  <th>Image</th>
+                  <th>Vendors</th>
+                  <th>Price</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input type="checkbox" checked></td>
+                  <td>Cement (50kg)</td>
+                  <td>45 bags</td>
+                  <td><img src="images/save-4.png" width="40" class="rounded"></td>
+                  <td>BuildPro Supplies</td>
+                  <td>£6.80 per bag</td>
+                  <td><i class="bi bi-cart add-to-cart" data-name="Cement (50kg)" data-price="6.80" data-qty="45 bags"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox"></td>
+                  <td>Steel Rod 12mm</td>
+                  <td>120 rods</td>
+                  <td><img src="images/jewerelar-woman.jpg" width="40" class="rounded"></td>
+                  <td>IronCore UK</td>
+                  <td>£4.55 per rod</td>
+                  <td><i class="bi bi-cart add-to-cart" data-name="Steel Rod 12mm" data-price="4.55" data-qty="120 rods"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox"></td>
+                  <td>Sharp sand</td>
+                  <td>9 tonnes</td>
+                  <td><img src="images/high-angle.jpg" width="40" class="rounded"></td>
+                  <td>Sand & Stone Depot</td>
+                  <td>£132.00 per tonne</td>
+                  <td><i class="bi bi-cart add-to-cart" data-name="Sharp sand" data-price="132.00" data-qty="9 tonnes"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox"></td>
+                  <td>Roofing Sheet (Long Span)</td>
+                  <td>38 sheets</td>
+                  <td><img src="images/explore-product-1.png" width="40" class="rounded"></td>
+                  <td>RoofLine UK</td>
+                  <td>£17.90 per sheet</td>
+                  <td><i class="bi bi-cart add-to-cart" data-name="Roofing Sheet (Long Span)" data-price="17.90"
+                      data-qty="38 sheets"></i></td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox"></td>
+                  <td>Granite (3/4 inch – 1 Tonne)</td>
+                  <td>7 tonnes</td>
+                  <td><img src="images/save-6.png" width="40" class="rounded"></td>
+                  <td>RockSolid Materials</td>
+                  <td>£41.75 per tonne</td>
+                  <td><i class="bi bi-cart add-to-cart" data-name="Granite (3/4 inch – 1 Tonne)" data-price="41.75"
+                      data-qty="7 tonnes"></i></td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox"></td>
+                  <td>Hollow Blocks (6-inch)</td>
+                  <td>520 blocks</td>
+                  <td><img src="images/stack-wooden.jpg" width="40" class="rounded"></td>
+                  <td>BlockMasters Ltd</td>
+                  <td>£1.10 per block</td>
+                  <td><i class="bi bi-cart add-to-cart" data-name="Hollow Blocks (6-inch)" data-price="1.10"
+                      data-qty="520 blocks"></i></td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox"></td>
+                  <td>Electrical Wiring Cable (100m Roll)</td>
+                  <td>6 rolls</td>
+                  <td><img src="images/save-2.png" width="40" class="rounded"></td>
+                  <td>ElectraSource</td>
+                  <td>£24.50 per roll</td>
+                  <td><i class="bi bi-cart add-to-cart" data-name="Electrical Wiring Cable (100m Roll)" data-price="24.50"
+                      data-qty="6 rolls"></i></td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox"></td>
+                  <td>PPR Plumbing Pipe (1 inch)</td>
+                  <td>22 pipes</td>
+                  <td><img src="images/save-5.png" width="40" class="rounded"></td>
+                  <td>PlumbTech UK</td>
+                  <td>£5.60 per pipe</td>
+                  <td><i class="bi bi-cart add-to-cart" data-name="PPR Plumbing Pipe (1 inch)" data-price="5.60"
+                      data-qty="22 pipes"></i></td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox"></td>
+                  <td>Floor Tiles (600×600mm)</td>
+                  <td>36 cartons</td>
+                  <td><img src="images/banner-2.png" width="40" class="rounded"></td>
+                  <td>TileHouse London</td>
+                  <td>£14.20 per carton</td>
+                  <td><i class="bi bi-cart add-to-cart" data-name="Floor Tiles (600×600mm)" data-price="14.20"
+                      data-qty="36 cartons"></i></td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox"></td>
+                  <td>Paint (White – 20L Bucket)</td>
+                  <td>12 buckets</td>
+                  <td><img src="images/yellow-tools.jpg" width="40" class="rounded"></td>
+                  <td>PrimeCo Paints</td>
+                  <td>£28.00 per bucket</td>
+                  <td><i class="bi bi-cart add-to-cart" data-name="Paint (White – 20L Bucket)" data-price="28.00"
+                      data-qty="12 buckets"></i></td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox"></td>
+                  <td>Wooden Door (Standard Interior)</td>
+                  <td>10 doors</td>
+                  <td><img src="images/abstract-gold-chain.jpg" width="40" class="rounded"></td>
+                  <td>WoodWorks UK</td>
+                  <td>£72.00 per door</td>
+                  <td><i class="bi bi-cart add-to-cart" data-name="Wooden Door (Standard Interior)" data-price="72.00"
+                      data-qty="10 doors"></i></td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox"></td>
+                  <td>Window Frame (Aluminum – 4ft)</td>
+                  <td>14 frames</td>
+                  <td><img src="images/jewery-lifestyle.jpg" width="40" class="rounded"></td>
+                  <td>VistaGlass & Frames</td>
+                  <td>£54.30 per frame</td>
+                  <td><i class="bi bi-cart add-to-cart" data-name="Window Frame (Aluminum – 4ft)" data-price="54.30"
+                      data-qty="14 frames"></i></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="proceed-to-checkout text-end">
+          <a href="checkout.html">Proceed to checkout</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-3 col-md-6">
+          <img src="images/logo.png" alt="Oh! Materials" style="max-width: 150px" />
+          <p class="mt-3 footer-p">
+            Smart procurement platform for construction materials, connecting
+            vendors and buyers across London.
+          </p>
+          <div class="social-icons mt-3">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+            <a href="#"><i class="fab fa-x-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h5>Quick links</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="marketplace.html">Marketplace</a></li>
+            <li><a href="vendor.html">Vendors</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h5>Support</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h5>Contact</h5>
+          <p>Email: support@ohmaterials.com</p>
+          <p>Phone: +234 807 184 0381</p>
+        </div>
+      </div>
+
+      <div class="copyright">© 2025 Oh! Materials. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="dist/js/bootstrap.min.js"></script>
+
+  <script>
+    const dropZone = document.getElementById("dropZone");
+    const fileInput = document.getElementById("fileInput");
+    const uploadBtn = document.getElementById("uploadBtn");
+    const uploadSection = document.getElementById("upload-section");
+    const materialsSection = document.getElementById("materials-section");
+
+    // Dropzone logic
+    dropZone.addEventListener("click", () => fileInput.click());
+    dropZone.addEventListener("dragover", (e) => {
+      e.preventDefault();
+      dropZone.classList.add("dragover");
+    });
+    dropZone.addEventListener("dragleave", () => dropZone.classList.remove("dragover"));
+    dropZone.addEventListener("drop", (e) => {
+      e.preventDefault();
+      dropZone.classList.remove("dragover");
+      handleFile(e.dataTransfer.files[0]);
+    });
+    fileInput.addEventListener("change", () => handleFile(fileInput.files[0]));
+
+    function handleFile(file) {
+      if (!file) return;
+      if (file.size > 10 * 1024 * 1024) {
+        alert("File size must be under 10MB");
+        return;
+      }
+      dropZone.querySelector(".drop-content").innerHTML = `
+        <div class="upload-icon mb-3">☁️</div>
+        <p class="fw-semibold mb-1">${file.name}</p>
+        <p class="small text-muted">Ready to upload</p>
+      `;
+    }
+
+    // Show materials table
+    uploadBtn.addEventListener("click", () => {
+      uploadSection.classList.add("d-block");
+      materialsSection.classList.remove("d-none");
+    });
+
+    // Cart logic
+    let cart = [];
+    document.addEventListener("click", function (e) {
+      if (e.target && e.target.classList.contains("add-to-cart")) {
+        const item = {
+          name: e.target.dataset.name,
+          price: e.target.dataset.price,
+          qty: e.target.dataset.qty
+        };
+        if (cart.find(i => i.name === item.name)) {
+          alert("Item already in cart");
+          return;
+        }
+        cart.push(item);
+        e.target.classList.add("added");
+        e.target.classList.replace("bi-cart", "bi-check-circle");
+        document.getElementById("cart-count").innerText = cart.length;
+        console.log("Cart:", cart);
+      }
+    });
+  </script>
+
+</body>
+
+</html>

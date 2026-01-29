@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oh! Materials | Track-product</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="font-awesome/css/brands.css">
+    <link rel="stylesheet" href="font-awesome/css/solid.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="user-dashboard.css">
+   
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="images/logo.png" alt="Oh Materials Logo" height="40" class="me-2">
+            </a>
+    
+            <!-- Mobile toggle -->
+            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button> -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
+    
+            <!-- Nav Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="marketplace.html">Marketplace</a></li>
+                    <li class="nav-item"><a class="nav-link" href="vendor.html">Vendors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Pricing.html">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+    
+                <!-- Icons -->
+                <div class="d-flex social">
+                    <a href="#" class="nav-link text-white"><img src="images/search.png" alt=""></a>
+                    <a href="login.html" class="nav-link text-white active"><img src="images/person.png" alt=""></a>
+                    <div class="position-relative">
+                        <a href="cart.html" class="nav-link text-white"><img src="images/cart.png" alt=""></a>
+                        <span id="cart-count"
+                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">0</span>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </nav>
+
+<section id="dashboard">
+<!-- Sidebar + Main Content -->
+<div class="container mt-5">
+<div class="row">
+
+<!-- Sidebar -->
+<aside class="col-md-4 col-lg-3  border-end sidebar pt-5 ">
+<div class="px-6 min-screen d-none d-md-block">
+    <h6 class="fw-bold fs-6 text-warning">Ohi<span style="color: #178A87;"> Materials</span></h6>
+    <p class="text-dark small fw-bold pt-5 mb-3">User dashboard</p>
+    <ul class="nav flex-column" id="sidebar-links">
+    <li><a data-page="account" href="" class="nav-link"><i class="fa fa-user"></i> My account</a></li>
+    <li><a data-page="orders" href="" class="nav-link"><i class="fa fa-cubes"></i> Orders</a></li>
+    <li><a data-page="inbox" href="" class="nav-link"><i class="fa fa-envelope"></i> Inbox</a></li>
+    <li><a data-page="track" href="" class="nav-link active"><i class="fa fa-paper-plane"></i> Track material</a>
+    </li>
+    <li><a data-page="wishlist" href="" class="nav-link"><i class="fa fa-heart"></i> Wishlist</a></li>
+    <li><a data-page="quote" href="quote.html" class="nav-link"><i class="fa fa-edit" aria-hidden="true"></i>Quote by drawing</a></li>
+    <li><a data-page="vendors" href="" class="nav-link"><i class="fa fa-home"></i> Favourite vendor</a></li>
+    <li><a data-page="recent" href="" class="nav-link"><i class="fa fa-clock"></i> Recently viewed</a></li>
+    </ul>
+    <button class="btn btn-warning w-100 text-decoration-none text-white fw-semibold mt-4"><i class="fa fa-sign-out" aria-hidden="true"></i>
+        <a style="text-decoration: none;color: #fff;" href="login.html">Logout</a></button>
+</div>
+
+
+<button style=" font-size: 30px;border: 1px solid #178A87; color: #178A87;" class="btn bg-white mb-5 btn-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasLeft"
+    aria-controls="offcanvasLeft"><i class="fa fa-bars" aria-hidden="true"></i>
+</button>
+    
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasLeft" aria-labelledby="offcanvasLeftLabel">
+    <div class="offcanvas-header">
+        <!-- <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5> -->
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="px-6">
+        <h6 class="fw-bold fs-6 text-warning">Ohi<span style="color: #178A87;"> Materials</span></h6>
+            <p class="text-dark small fw-bold pt-5 mb-3">User dashboard</p>
+            <ul class="nav flex-column" id="sidebar-links-mobile">
+                <li><a data-page="account" class="nav-link"><i class="fa fa-user"></i> My account</a></li>
+                <li><a data-page="orders" class="nav-link"><i class="fa fa-cubes"></i> Orders</a></li>
+                <li><a data-page="inbox" class="nav-link"><i class="fa fa-envelope"></i> Inbox</a></li>
+                <li><a data-page="track" class="nav-link active"><i class="fa fa-paper-plane"></i> Track material</a>
+                </li>
+                <li><a data-page="wishlist" class="nav-link"><i class="fa fa-heart"></i> Wishlist</a></li>
+                <li><a data-page="quote" href="quote.html" class="nav-link"><i class="fa fa-edit" aria-hidden="true"></i>Quote by drawing</a></li>
+                <li><a data-page="vendors" class="nav-link"><i class="fa fa-home"></i> Favourite vendor</a></li>
+                <li><a data-page="recent" class="nav-link"><i class="fa fa-clock"></i> Recently viewed</a></li>
+            </ul>
+            <button class="btn btn-warning text-decoration-none w-100 text-white fw-semibold mt-4"><i class="fa fa-sign-out" aria-hidden="true"></i>
+                <a style="text-decoration: none;color: #fff;" href="login.html">Logout</a></button>
+        </div>
+    </div>
+</div>
+
+</aside>
+
+
+<!-- Main -->
+<main class="col-md-8 col-lg-9 ms-sm-auto px-4 py-5 main-section">
+        <h5 class="fw-bold text-center">Hi, Tito Samuel</h5>
+
+<div id="page-track" class="page-section">
+    <!-- all your track page content here -->
+    <div class="container">
+        <div class="main-card bg-white p-4 rounded-4 shadow-sm">
+            <h4 class="fw-semibold mt-2 mb-3">Track your materials</h4>
+            <p class="text-muted small mb-4">Enter a tracking ID, supplier, or scan a QR code to access live
+                logistics data, delivery ETA, and real-time site status updates across the UK.</p>
+    
+            <!-- Search -->
+            <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
+                <div class="input-group me-3" style="max-width:500px;">
+                    <input type="text" class="form-control" placeholder="Search by ID, product or supplier...">
+                    <button class="btn btn-second-success" id="searchbtn">Search</button>
+                </div>
+                <button class="btn btn-outline-secondary" id="filterbtn"><i class="fa fa-filter" aria-hidden="true"></i>Filter</button>
+            </div>
+    
+            <!-- Cards -->
+            <div class="row g-3 mb-4">
+                <div class="col-md-6 ms-auto">
+                    <div class="info-card bg-teal border-0 text-white  p-5 rounded-3 shadow-sm">
+                        <h6 class="fw-semibold mb-1">Total Materials</h6>
+                        <h3 class="fw-bold mb-0">4</h3>
+                    </div>
+                </div>
+                <div class="col-md-6 ms-auto">
+                    <div class="info-card bg-success text-white  p-5 rounded-3 shadow-sm">
+                        <h6 class="fw-semibold mb-1">In transit</h6>
+                        <h3 class="fw-bold mb-0">1</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-3 mb-4">
+                <div class="col-md-6 ms-auto">
+                    <div class="info-card bg-warning text-white  p-5 rounded-3 shadow-sm">
+                        <h6 class="fw-semibold mb-1">Pending</h6>
+                        <h3 class="fw-bold mb-0">1</h3>
+                    </div>
+                </div>
+                <div class="col-md-6 ms-auto">
+                    <div class="info-card bg-teal text-white  p-5 rounded-3 shadow-sm">
+                        <h6 class="fw-semibold mb-1">Received</h6>
+                        <h3 class="fw-bold mb-0">1</h3>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Map -->
+            <div class="map-section rounded-4 overflow-hidden">
+                <h6>Live map (UK Network)</h6>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d159013.46133869686!2d-0.29110920372115884!3d51.48412532222535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sUk%20network%20london!5e0!3m2!1sen!2sng!4v1762939735647!5m2!1sen!2sng"
+                    width="100%" height="90%" style="border-radius:10px;
+                    " allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <p class="location">Select a material to highlight its delivery route and location pin.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Tracked Materials -->
+    <div class="bg-white rounded-3 p-4 mt-5 mb-5 shadow-sm mb-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h6 class="fw-bold">Tracked Materials</h6>
+            <small class="text-dark">Updated every 30 minutes</small>
+        </div>
+        <div class="materials-list">
+            <div
+                class="material-row d-flex flex-wrap align-items-center justify-content-between shadow-sm p-3 mb-3 bg-body-tertiary mt-5 rounded">
+                <div class="col-md-2 col mb-2 mb-md-0" style=" border: 1px solid #000; padding: 5px; border-radius: 10px; width: 80px; text-align: center; margin-right: 1opx;">
+                    <small class="text-muted d-block">Material ID</small>
+                    <span class="fw-semibold">MAT-001</span>
+                </div>
+    
+                <div class="col-md-5 col mb-2 mb-md-0">
+                    <span class="fw-semibold">Tarmac Cement (50kg)</span><br>
+                    <small class="text-muted">Tarmac Building Products — London — Stratford Site</small>
+                </div>
+    
+                <div class="col-md-2 col p-lg-4 mb-2 mb-md-0">
+                    <small class=" fw-bold d-block">Qty</small>
+                    <span class="text-muted">120</span>
+                </div>
+    
+                <div class="col-md-2 col  mb-2 mb-md-0">
+                    <span class="fw-bold">In transit</span><br>
+                    <small class="text-muted">ETA: 2 days</small>
+                </div>
+    
+                <div class="col-md-1 col-12 text-md-end">
+                    <a href="#" class="p-2" style="border-radius: 10px;border: 1px #242424 solid; background: initial;text-decoration:none;color: #242424">Details</a>
+                </div>
+            </div>
+        </div>
+        <div class="materials-list">
+            <div
+                class="material-row d-flex flex-wrap align-items-center justify-content-between shadow-sm p-3 mb-3 bg-body-tertiary mt-5 rounded">
+                <div class="col-md-2 col mb-2 mb-md-0" style=" border: 1px solid #000; padding: 5px; border-radius: 10px; width: 80px; text-align: center; margin-right: 1opx;">
+                    <small class="text-muted d-block">Material ID</small>
+                    <span class="fw-semibold">MAT-001</span>
+                </div>
+    
+                <div class="col-md-5 col mb-2 mb-md-0">
+                    <span class="fw-semibold">Tarmac Cement (50kg)</span><br>
+                    <small class="text-muted">Tarmac Building Products — London — Stratford Site</small>
+                </div>
+    
+                <div class="col-md-2 col mb-2 p-lg-4 mb-md-0">
+                    <small class=" fw-bold d-block">Qty</small>
+                    <span class="text-muted">120</span>
+                </div>
+    
+                <div class="col-md-2 col mb-2 mb-md-0">
+                    <span class="fw-bold">In transit</span><br>
+                    <small class="text-muted">ETA: 2 days</small>
+                </div>
+    
+                <div class="col-md-1 col-12 text-md-end">
+                    <a href="#" class="p-2" style="border-radius: 10px;border: 1px #242424 solid; background: initial;text-decoration:none;color: #242424">Details</a>
+                </div>
+            </div>
+        </div>
+        <div class="materials-list">
+            <div
+                class="material-row d-flex flex-wrap align-items-center justify-content-between shadow-sm p-3 mb-3 bg-body-tertiary mt-5 rounded">
+                <div class="col-md-2 col mb-2 mb-md-0" style=" border: 1px solid #000; padding: 5px; border-radius: 10px; width: 80px; text-align: center; margin-right: 1opx;">
+                    <small class="text-muted d-block">Material ID</small>
+                    <span class="fw-semibold">MAT-001</span>
+                </div>
+    
+                <div class="col-md-5 col mb-2 mb-md-0">
+                    <span class="fw-semibold">Tarmac Cement (50kg)</span><br>
+                    <small class="text-muted">Tarmac Building Products — London — Stratford Site</small>
+                </div>
+    
+                <div class="col-md-2 col mb-2 p-lg-4 mb-md-0">
+                    <small class=" fw-bold d-block">Qty</small>
+                    <span class="text-muted">120</span>
+                </div>
+    
+                <div class="col-md-2 col mb-2 mb-md-0">
+                    <span class="fw-bold">In transit</span><br>
+                    <small class="text-muted">ETA: 2 days</small>
+                </div>
+    
+                <div class="col-md-1 col-12 text-md-end">
+                    <a href="#" class="p-2" style="border-radius: 10px;border: 1px #242424 solid; background: initial;text-decoration:none;color: #242424">Details</a>
+                </div>
+            </div>
+        </div>
+        <div class="materials-list">
+            <div
+                class="material-row d-flex flex-wrap align-items-center justify-content-between shadow-sm p-3 mb-3 bg-body-tertiary mt-5 rounded">
+                <div class="col-md-2 col mb-2 mb-md-0" style=" border: 1px solid #000; padding: 5px; border-radius: 10px; width: 80px; text-align: center; margin-right: 1opx;">
+                    <small class="text-muted d-block">Material ID</small>
+                    <span class="fw-semibold">MAT-001</span>
+                </div>
+    
+                <div class="col-md-5 col mb-2 mb-md-0">
+                    <span class="fw-semibold">Tarmac Cement (50kg)</span><br>
+                    <small class="text-muted">Tarmac Building Products — London — Stratford Site</small>
+                </div>
+    
+                <div class="col-md-2 col mb-2 p-lg-4 mb-md-0">
+                    <small class=" fw-bold d-block">Qty</small>
+                    <span class="text-muted">120</span>
+                </div>
+    
+                <div class="col-md-2 col mb-2 mb-md-0">
+                    <span class="fw-bold">In transit</span><br>
+                    <small class="text-muted">ETA: 2 days</small>
+                </div>
+    
+                <div class="col-md-1 col-12 text-md-end">
+                    <a href="#" class="p-2" style="border-radius: 10px;border: 1px #242424 solid; background: initial;text-decoration:none;color: #242424">Details</a>
+                </div>
+            </div>
+            <div class="load-more">
+                <a href="#" class="text-center">Load more updates</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Selected Material -->
+    <div class="bg-white rounded-3 p-4 shadow-sm mb-4">
+        <div class="card-body" style="font-family: Inter;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 18px;
+        leading-trim: NONE;
+        line-height: 100%;
+        letter-spacing: 0%;">
+    
+            <!-- Selected Material -->
+            <small class="text-secondary">Selected Material</small>
+            <h4 class="fw-bold mt-1">
+                MAT-001 — Tarmac Cement (50kg)
+            </h4>
+            <p class="text-secondary mb-4">
+                Vendor – Tarmac Building Products • Stratford Site, London
+            </p>
+            <!-- Status Progress -->
+            <h6 class="fw-bold mb-2">Status Progress</h6>
+            <div class="progress material-progress mb-2">
+                <div class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0"
+                    aria-valuemax="100">
+                </div>
+            </div>
+            <small class="text-secondary">
+                Dispatched → In Transit → Delivered → On-Site
+            </small>
+        </div>
+    </div>
+ 
+    <!-- Recent Activity -->
+    <div class="bg-white rounded-3 p-4 shadow-sm mb-4">
+        <h6 class="fw-bold mb-3">Recent Activity (GMT)</h6>
+        <ul class="mb-0 text-secondary">
+            <li>2025-10-05: Departed London Docklands — En route to site</li>
+            <li>2025-10-04: Customs cleared — Felixstowe Port</li>
+            <li>2025-10-03: Shipment created — Supplier dispatch confirmed</li>
+        </ul>
+    </div>
+    
+    <!-- Quick Actions -->
+    <div class="bg-white rounded-3 p-4 shadow-sm mb-4">
+        <h6 class="fw-bold mb-3" style="font-family: Inter;
+                font-weight: 700;
+                font-style: Bold;
+                font-size: 28px;
+                leading-trim: NONE;
+                line-height: 100%;
+                letter-spacing: 0%;
+                ">Quick Actions</h6>
+        <div class="d-grid gap-2">
+            <button class="btn btn-outline-dark">Request Delivery Update</button>
+            <button class="btn btn-warning text-white fw-semibold">Report delay or damage</button>
+            <button class="btn btn-success  text-white fw-semibold" style="background: #178A87;">Notify site manager</button>
+        </div>
+    </div>
+    
+    <!-- Instant Delivery Notifications -->
+    <div class="bg-teal text-white rounded-3 p-4 shadow-sm mb-5">
+        <div class="bg-contents">
+            <h6 class="fw-bold mb-3">Get instant delivery notifications</h6>
+            <p class="mb-3">Enable SMS or WhatsApp alerts for real-time tracking <br> across UK regions.</p>
+        </div>
+        <a href="#" class="btn btn-light text-success fw-semibold">Enable alerts</a>
+    </div>
+</div>
+
+<!-- ACCOUNT PAGE -->
+<div id="page-account" class="page-section active">
+    <div class="p-4 bg-white h-100 p-5 rounded-4 shadow-sm">
+        <h3 class="account-view pb-2">Account overview</h3>
+        <div class="row g-3">
+            <div class="col-md-6 mb-5">
+                <h5 class="small fw-bold pb-2">ACCOUNT DETAILS</h5>
+                <div class="account-card w-100  p-3">
+                    <div class="card-details border-2 rounded-1 p-2">
+                        <h6>TITO SAMUEL
+                        </h6>
+                        <p class="mail">titosamuel@gmail.com </p>
+                    </div>
+                    <div class="card-details border-2 rounded-1 p-2">
+                        <h6>Card details</h6>
+                        <p>xxxx-xxxx-2341 Mastercard</p>
+                    </div>
+                    <div class="card-details border-2 rounded-1 p-2">
+                        <h6>Card details</h6>
+                        <p>xxxx-xxxx-2341 Visa</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-5">
+                <div class="a-book d-flex pb-2">
+                    <h5 class="small fw-bold">ADDRESS BOOK</h5>
+                    <a href="#" onclick="switchPage('page-edit'); return false;">
+                        <img src="images/Vector.png" alt="">
+                    </a>
+
+                </div>
+                <div class="account-card w-100 p-3">
+                    <div class="card-details p-2">
+                        <h6>Your default shipping address:
+                        </h6>
+                        
+                    </div>
+                    <div class="card-details p-2">
+                        <h6>Tito samuel</h6>
+                        <p>18 Hawthorne Close, Leeds, LS12 4JT, United Kingdom</p>
+                        <p>+2349071540381</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="row g-3 mt-5">
+            <div class="col-md-6 mb-5">
+                <h5 class="small fw-bold">NEWSLETTER PREFERENCE</h5>
+                <div class="account-card w-100">
+                    <div class="card-details pt-3" style="padding-bottom: 75px;">
+                        <p>Manage your email communications to stay updated with the latest news and offers.</p>
+                    </div>
+                    <div class="card-details">
+                        <a href="#" class="eidt-news">Edit Newsletter Preference</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-5">
+                <div class="a-book d-flex justify-content-between">
+                    <h5 class="small fw-bold">WISHLIST</h5>
+                </div>
+                <div class="account-card w-100 p-3">
+                    <div class="card-details d-flex g-3 p-1">
+                        <img class="img-fluid rounded-2 m-2" width="50" height="20" src="images/save-4.png" alt="">
+                        <div class="card-det">
+                        <h6>BUA Cement 50kg
+                        </h6>
+                        <p>£52.99</p>
+                        </div>                                     
+                    </div>
+                    <div class="card-details d-flex g-3 p-1">
+                        <img class="img-fluid rounded-2 m-2" width="50" height="20" src="images/stack-wooden.jpg" alt="">
+                        <div class="card-det">
+                            <h6>BUA Cement 50kg
+                            </h6>
+                            <p>£52.99</p>
+                        </div>
+                    </div>
+                    <div class="card-details d-flex g-3 p-1">
+                        <img class="img-fluid rounded-2 m-2" width="50" height="20" src="images/save-2.png" alt="">
+                        <div class="card-det">
+                            <h6>BUA Cement 50kg
+                            </h6>
+                            <p>£52.99</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ACCOUNT PAGE EDIT -->
+<div id="page-edit" class="page-section">
+<div class="container my-5">
+  <h6 class="mb-4 fw-semibold">
+    ← Checkout summary
+  </h6>
+
+  <div class="card border-0 shadow-sm p-4">
+    <form>
+      <div class="row g-3">
+        <!-- First & Last Name -->
+        <div class="col-md-6">
+          <label class="form-label">First name</label>
+          <input type="text" class="form-control" placeholder="">
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Last name</label>
+          <input type="text" class="form-control">
+        </div>
+
+        <!-- Phone Numbers -->
+        <div class="col-md-6">
+          <label class="form-label">Phone number</label>
+          <input type="tel" class="form-control">
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Additional Phone number</label>
+          <input type="tel" class="form-control">
+        </div>
+
+        <!-- Delivery Address -->
+        <div class="col-12">
+          <label class="form-label">Delivery address</label>
+          <input type="text" class="form-control">
+        </div>
+
+        <!-- Additional Details -->
+        <div class="col-12">
+          <label class="form-label">Additional details</label>
+          <input type="text" class="form-control">
+        </div>
+
+        <!-- Region & City -->
+        <div class="col-md-6">
+          <label class="form-label">Region</label>
+          <select class="form-select">
+            <option selected disabled>Select region</option>
+            <option>Lagos</option>
+            <option>Abuja</option>
+            <option>Rivers</option>
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">City</label>
+          <select class="form-select">
+            <option selected disabled>Select city</option>
+            <option>Ikeja</option>
+            <option>Yaba</option>
+            <option>Lekki</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Save Button -->
+      <div class="d-flex justify-content-end mt-4">
+        <button type="submit" class="btn btn-success px-4">
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+</div>
+
+<!-- ORDERS PAGE -->
+<div id="page-orders" class="page-section">
+    <div class="p-4 bg-white rounded-4 shadow-sm">
+        <h4 class="fw-bold mb-3">Your Orders</h4>
+    <div class="top-contents d-flex">
+        <span class="top-con1 p-2"> Ongoing/Delivered</span>
+        <span class="top-con2 p-2">Cancelled/ Returned</span>
+        
+    </div>
+    <div class="card-order-details mt-5 d-flex">                       
+        <div class="order-card">
+            <div class="imgpart">
+                <img class=" rounded-3 m-2" width="90" height="60" src="images/save-4.png" alt="">
+            </div>
+        <div class="orders-det p-2">
+            <h6>BUA Cement 50kg
+            </h6>
+            <p>Order 1467635852</p>
+            <span>Delivered</span><br>
+            <input style="border: none;outline-style: none;padding-top:10px;padding-bottom:5px;" type="datetime" name="date" id="date" placeholder="on 23-09">
+        </div>
+        </div>
+        <a href="#">see details</a>
+    </div>
+    <div class="card-order-details mt-5 d-flex">
+        <div class="order-card">
+            <div class="imgpart">
+                <img class=" rounded-3 m-2" width="90" height="60" src="images/stack-wooden.jpg" alt="">
+            </div>
+            <div class="orders-det p-2">
+                <h6>Mahogany wood
+                </h6>
+                <p>Order 3585214676</p>
+                <span>Delivered</span><br>
+                <input style="border: none;outline-style: none;padding-top:10px;padding-bottom:5px;" type="datetime" name="date" id="date"
+                    placeholder="on 23-09">
+            </div>
+        </div>
+        <a href="#">see details</a>
+    </div>
+    <div class="card-order-details mt-5 d-flex">
+    <div class="order-card">
+            <div class="imgpart">
+            <img class=" rounded-3 m-2" width="90" height="60" src="images/save-2.png" alt="">
+            </div>
+            <div class="orders-det p-2">
+                <h6>Steel rods
+                </h6>
+                <p>9274635852</p>
+                <span>Delivered</span><br>
+                <input style="border: none;outline-style: none;padding-top:10px;padding-bottom:5px;" type="datetime" name="date" id="date" placeholder="on 23-09">
+            </div>
+        </div>
+        <a href="#">see details</a>
+    </div>
+    <div class="card-order-details mt-5 d-flex">
+        <div class="order-card">
+            <div class="imgpart">
+                <img class=" rounded-3 m-2" width="90" height="60" src="images/save-4.png" alt="">
+            </div>
+            <div class="orders-det p-2">
+                <h6>BUA Cement 50kg
+                </h6>
+                <p>Order 1467635852</p>
+                <span>Delivered</span><br>
+                <input style="border: none;outline-style: none;padding-top:10px;padding-bottom:5px;" type="datetime" name="date" id="date" placeholder="on 23-09">
+            </div>
+        </div>
+        <a href="#">see details</a>
+    </div>
+    <div class="card-order-details mt-5 d-flex">
+        <div class="order-card">
+            <div class="imgpart">
+                <img class=" rounded-3 m-2" width="90" height="60" src="images/save-2.png" alt="">
+            </div>
+            <div class="orders-det p-2">
+                <h6>Steel rods
+                </h6>
+                <p>Order 9274635852</p>
+                <span>Delivered</span><br>
+                <input style="border: none;outline-style: none;padding-top:10px;padding-bottom:5px;" type="datetime" name="date" id="date" placeholder="on 23-09">
+            </div>
+        </div>
+        <a href="#">see details</a>
+    </div>
+    <div class="card-order-details mt-5 d-flex">
+        <div class="order-card">
+        <div class="imgpart">
+            <img class=" rounded-3 m-2" width="90" height="60" src="images/stack-wooden.jpg" alt="">
+        </div>
+        <div class="orders-det p-2">
+            <h6>Mahogany wood
+            </h6>
+            <p>Order 3585214676</p>
+            <span>Delivered</span><br>
+            <input style="border: none;outline-style: none;padding-top:10px;padding-bottom:5px;" type="datetime" name="date" id="date" placeholder="on 23-09">
+        </div>
+    </div>
+    <a href="#">see details</a>
+    </div>
+    </div>
+</div>
+
+<!-- INBOX PAGE -->
+<div id="page-inbox" class="page-section">
+    <div class="inbox-empty-card">
+        <h4 class="fw-bold mb-3">Inbox</h4>
+        <hr>
+        <div class="inbox-empty-text">
+        <img src="images/image 31.png" class="inbox-empty-img" alt="No messages">
+        <p class="fw-bold mt-3">You don’t have any messages</p>
+        <p class="fw-bold small">
+            Here you will be able to see all the messages that we send you.<br>
+            Stay tuned
+        </p>
+        </div>
+    </div>
+</div>
+
+<!-- WISHLIST PAGE -->
+<div id="page-wishlist" class="page-section">
+    <div class="wishlist-card">
+    
+        <!-- Header -->
+        <div class="wishlist-header">
+            <h6>Wishlist <span class="count">(6)</span></h6>
+            <hr>
+        </div>
+    
+        <!-- Item -->
+        <div class="material-item d-flex justify-content-between align-items-center">
+            <div class="d-flex gap-3">
+                <img src="images/save-4.png" class="material-img" alt="Cement">
+                <div>
+                    <h6 class="mb-1">BUA Cement 50kg</h6>
+                    <div class="price">
+                        <span class="fw-bold">£75.99</span>
+                        <del class="text-muted ms-1">£109.99</del>
+                        <span class="badge discount-badge ms-2">-45%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="text-end">
+                <a href="#" class="remove-link">Remove</a>
+                <a href="#" class="btn add-btn ms-2">Add to cart</a>
+            </div>
+        </div>
+    
+        <!-- Item (Not Available) -->
+        <div class="material-item d-flex justify-content-between align-items-center">
+            <div class="d-flex gap-3">
+                <img src="images/save-4.png" class="material-img" alt="Cement">
+    
+                <div>
+                    <h6 class="mb-1">BUA Cement 50kg</h6>
+                    <span class="badge unavailable-badge mt-1"><i class="fa fa-ban" aria-hidden="true"></i> NOT AVAILABLE</span>
+                </div>
+            </div>
+            <div class="text-end">
+                <a href="#" class="remove-link">Remove</a>
+                <a href="#" class="btn out-btn ms-2" disabled>Out of stock</a>
+            </div>
+        </div>
+        <!-- Item -->
+        <div class="material-item d-flex justify-content-between align-items-center">
+            <div class="d-flex gap-3">
+                <img src="images/save-4.png" class="material-img" alt="Cement">
+                <div>
+                    <h6 class="mb-1">BUA Cement 50kg</h6>
+                    <div class="price">
+                        <span class="fw-bold">£75.99</span>
+                        <del class="text-muted ms-1">£109.99</del>
+                        <span class="badge discount-badge ms-2">-45%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="text-end">
+                <a href="#" class="remove-link">Remove</a>
+                <a href="#" class="btn add-btn ms-2">Add to cart</a>
+            </div>
+        </div>
+    
+        <!-- Item (Not Available) -->
+        <div class="material-item d-flex justify-content-between align-items-center">
+            <div class="d-flex gap-3">
+                <img src="images/save-4.png" class="material-img" alt="Cement">
+    
+                <div>
+                    <h6 class="mb-1">BUA Cement 50kg</h6>
+                    <span class="badge unavailable-badge mt-1"><i class="fa fa-ban" aria-hidden="true"></i> NOT AVAILABLE</span>
+                </div>
+            </div>
+            <div class="text-end">
+                <a href="#" class="remove-link">Remove</a>
+                <a href="#" class="btn out-btn ms-2" disabled>Out of stock</a>
+            </div>
+        </div>
+        <!-- Item -->
+        <div class="material-item d-flex justify-content-between align-items-center">
+            <div class="d-flex gap-3">
+                <img src="images/save-4.png" class="material-img" alt="Cement">
+                <div>
+                    <h6 class="mb-1">BUA Cement 50kg</h6>
+                    <div class="price">
+                        <span class="fw-bold">£75.99</span>
+                        <del class="text-muted ms-1">£109.99</del>
+                        <span class="badge discount-badge ms-2">-45%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="text-end">
+                <a href="#" class="remove-link">Remove</a>
+                <a href="#" class="btn add-btn ms-2">Add to cart</a>
+            </div>
+        </div>
+
+        <!-- Item (Not Available) -->
+        <div class="material-item d-flex justify-content-between align-items-center">
+            <div class="d-flex gap-3">
+                <img src="images/save-4.png" class="material-img" alt="Cement">
+    
+                <div>
+                    <h6 class="mb-1">BUA Cement 50kg</h6>
+                    <span class="badge unavailable-badge mt-1"><i class="fa fa-ban" aria-hidden="true"></i> NOT AVAILABLE</span>
+                </div>
+            </div>
+            <div class="text-end">
+                <a href="#" class="remove-link">Remove</a>
+                <a href="#" class="btn out-btn ms-2" disabled>Out of stock</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--QUOTE PAGE-->
+<div id="page-quote" class="page-section">
+    <div class="bg-white p-4 rounded-4 shadow-sm">
+        <h4 class="fw-bold mb-3">Favourite Vendors</h4>
+        <hr>
+        </div>
+</div>
+
+<!-- FAVOURITE VENDORS -->
+<div id="page-vendors" class="page-section">
+    <div class="bg-white p-4 rounded-4 shadow-sm">
+        <h4 class="fw-bold mb-3">Favourite Vendors</h4>
+        <hr>
+      <div class="vendors-content">
+        <div class="vendor-card">
+            <img class="img-fluid" width="230" height="100" src="images/vendor-1.png" alt="Vendor 1">
+            <div class="vendor-info">
+                <h6 class="vendor-name">Ceiluxe Boards</h6>
+                <a href="#" class="view-vendor-btn">Visit Store</a><br>
+                <img src="images/Frame 439.png" alt=""> 4.8<br>
+                <a href="#" class="vendor-location">Request a Quote</a>
+            </div>
+        </div>
+        <div class="vendor-card">
+            <img class="img-fluid" width="230" height="100" src="images/vendor-2.png" alt="Vendor 2">
+            <div class="vendor-info">
+                <h6 class="vendor-name">Dangote Cement (50kg)</h6>
+                <a href="#" class="view-vendor-btn">Visit Store</a><br>
+                <img src="images/Frame 439.png" alt=""> 4.8<br>
+                <a href="#" class="vendor-location">Request a Quote</a>
+            </div>
+        </div>
+        <div class="vendor-card">
+            <img class="img-fluid" width="230" height="100" src="images/vendor-3.png" alt="Vendor 3">
+            <div class="vendor-info">
+                <h6 class="vendor-name">Skyshied Roofing</h6>
+                <a href="#" class="view-vendor-btn">Visit Store</a><br>
+                <img src="images/Frame 439.png" alt=""> 4.8<br>
+                <a href="#" class="vendor-location">Request a Quote</a>
+            </div>
+        </div>
+      </div>
+
+      <div class="vendors-content">
+    <div class="vendor-card">
+        <img class="img-fluid" width="230" height="100" src="images/vendor-3.png" alt="Vendor 3">
+        <div class="vendor-info">
+            <h6 class="vendor-name">Skyshied Roofing</h6>
+            <a href="#" class="view-vendor-btn">Visit Store</a><br>
+            <img src="images/Frame 439.png" alt=""> 4.8<br>
+            <a href="#" class="vendor-location">Request a Quote</a>
+        </div>
+    </div>
+        <div class="vendor-card">
+            <img class="img-fluid" width="230" height="100" src="images/vendor-1.png" alt="Vendor 1">
+            <div class="vendor-info">
+                <h6 class="vendor-name">Ceiluxe Boards</h6>
+                <a href="#" class="view-vendor-btn">Visit Store</a><br>
+                <img src="images/Frame 439.png" alt=""> 4.8<br>
+                <a href="#" class="vendor-location">Request a Quote</a>
+            </div>
+        </div>
+        <div class="vendor-card">
+            <img class="img-fluid" width="230" height="100" src="images/vendor-2.png" alt="Vendor 2">
+            <div class="vendor-info">
+                <h6 class="vendor-name">Ceiluxe Boards</h6>
+                <a href="#" class="view-vendor-btn">Visit Store</a><br>
+                <img src="images/Frame 439.png" alt=""> 4.8<br>
+                <a href="#" class="vendor-location">Request a Quote</a>
+            </div>
+        </div>
+      </div>
+
+      <div class="vendors-content">
+        <div class="vendor-card">
+            <img class="img-fluid" width="230" height="100" src="images/vendor-1.png" alt="Vendor 1">
+            <div class="vendor-info">
+                <h6 class="vendor-name">Ceiluxe Boards</h6>
+                <a href="#" class="view-vendor-btn">Visit Store</a><br>
+                <img src="images/Frame 439.png" alt=""> 4.8<br>
+                <a href="#" class="vendor-location">Request a Quote</a>
+            </div>
+        </div>
+        <div class="vendor-card">
+            <img class="img-fluid" width="230" height="100" src="images/vendor-2.png" alt="Vendor 2">
+            <div class="vendor-info">
+                <h6 class="vendor-name">Ceiluxe Boards</h6>
+                <a href="#" class="view-vendor-btn">Visit Store</a><br>
+                <img src="images/Frame 439.png" alt=""> 4.8<br>
+                <a href="#" class="vendor-location">Request a Quote</a>
+            </div>
+        </div>
+        <div class="vendor-card">
+            <img class="img-fluid" width="230" height="100" src="images/vendor-3.png" alt="Vendor 3">
+            <div class="vendor-info">
+                <h6 class="vendor-name">Skyshield roofing</h6>
+                <a href="#" class="view-vendor-btn">Visit Store</a><br>
+                <img src="images/Frame 439.png" alt=""> 4.8<br>
+                <a href="#" class="vendor-location">Request a Quote</a>
+            </div>
+        </div>
+      </div>
+
+    <div class="vendors-content">
+        <div class="vendor-card">
+            <img class="img-fluid" width="230" height="100" src="images/vendor-3.png" alt="Vendor 3">
+            <div class="vendor-info">
+                <h6 class="vendor-name">Skyshied Roofing</h6>
+                <a href="#" class="view-vendor-btn">Visit Store</a><br>
+                <img src="images/Frame 439.png" alt=""> 4.8<br>
+                <a href="#" class="vendor-location">Request a Quote</a>
+            </div>
+        </div>
+        <div class="vendor-card">
+            <img class="img-fluid" width="230" height="100" src="images/vendor-1.png" alt="Vendor 1">
+            <div class="vendor-info">
+                <h6 class="vendor-name">Ceiluxe Boards</h6>
+                <a href="#" class="view-vendor-btn">Visit Store</a><br>
+                <img src="images/Frame 439.png" alt=""> 4.8<br>
+                <a href="#" class="vendor-location">Request a Quote</a>
+            </div>
+        </div>
+        <div class="vendor-card">
+            <img class="img-fluid" width="230" height="100" src="images/vendor-2.png" alt="Vendor 2">
+            <div class="vendor-info">
+                <h6 class="vendor-name">Ceiluxe Boards</h6>
+                <a href="#" class="view-vendor-btn">Visit Store</a><br>
+                <img src="images/Frame 439.png" alt=""> 4.8<br>
+                <a href="#" class="vendor-location">Request a Quote</a>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+<!-- RECENTLY VIEWED -->
+<div id="page-recent" class="page-section">
+    <!-- Products -->
+    <main class="col-12 col-lg-12">
+        <div class="row product-grid g-4" id="productGrid" aria-live="polite">
+            <!-- products injected by JS -->
+        </div>
+    </main>
+    </div>
+    </div>
+    </div>
+    
+</div>
+</main>
+</div>
+</div>
+</section>
+         
+<section class="recently-viewed py-5 marketplace-bottom">
+    <div class="container">
+        <h5 class="fw-bold mb-4">RECENTLY VIEWED</h5>
+        <div class="row" id="recently-viewed-container"></div>
+        <!-- JS will inject cards here -->
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row gy-4">
+                <!-- Logo & About -->
+                <div class="col-lg-3 col-md-6">
+                    <img src="images/logo.png" alt="Oh! Materials" style="max-width: 150px" />
+                    <p class="mt-3 footer-p">
+                        Smart procurement platform for construction materials, connecting
+                        vendors and buyers across London.
+                    </p>
+                    <div class="social-icons mt-3">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+    
+                <!-- Quick Links -->
+                <div class="col-lg-3 col-md-6">
+                    <h5>Quick links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="marketplace.html">Marketplace</a></li>
+                        <li><a href="vendor.html">Vendors</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Support -->
+                <div class="col-lg-3 col-md-6">
+                    <h5>Support</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Contact -->
+                <div class="col-lg-3 col-md-6">
+                    <h5>Contact</h5>
+                    <p>Email: support@oh!materials.com</p>
+                    <p>Phone: +234 807 184 0381</p>
+                </div>
+            </div>
+    
+            <div class="copyright">© 2025 Oh! Materials. All rights reserved.</div>
+        </div>
+    </footer>
+
+<!-- Bootstrap JS -->
+<script src="dist/js/bootstrap.min.js"></script>
+<script src="js/script.js"></script>
+<script src="js/marketplace.js"></script>
+    <!-- Bootstrap JS -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> -->
+
+<script src="js/dashboard.js"></script>
+
+
+<script>
+    function switchPage(pageId) {
+        document.querySelectorAll('.page-section').forEach(page => {
+            page.classList.remove('active');
+        });
+
+        document.getElementById(pageId).classList.add('active');
+
+        console.log("Switching to:", pageId);
+
+    }
+</script>
+
+
+</body>
+</html>

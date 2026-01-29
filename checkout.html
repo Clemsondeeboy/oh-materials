@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oh! Materials | Checkout</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Navbar */
+         .navbar {
+            background-color: transparent;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff !important;
+            font-weight: 500;
+            margin: 0 8px;
+        }
+
+        /* Page Title */
+        h4.page-title {
+            color: #00796b;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        /* Section box */
+        .section-box {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .section-header h6 {
+            font-weight: 700;
+            color: #000;
+            font-size: 15px;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-header h6 span.num {
+            background-color: #009688;
+            color: #fff;
+            border-radius: 50%;
+            font-size: 13px;
+            width: 22px;
+            height: 22px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 8px;
+        }
+
+        .section-header i {
+            color: #ffc107;
+            cursor: pointer;
+        }
+
+        /* Order summary */
+        .order-summary {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .order-summary h6 {
+            font-weight: 700;
+            font-size: 15px;
+            margin-bottom: 15px;
+        }
+
+        .summary-line {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .summary-total {
+            font-weight: 700;
+            font-size: 18px;
+            color: #000;
+            border-top: 1px solid #e0e0e0;
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+
+        /* Promo input */
+        .promo-box {
+            display: flex;
+            margin-top: 12px;
+        }
+
+        .promo-box input {
+            flex: 1;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            padding: 8px;
+        }
+
+        .promo-box button {
+            background: #009688;
+            border: none;
+            color: #fff;
+            border-radius: 6px;
+            padding: 8px 14px;
+            margin-left: 6px;
+        }
+
+        /* Checkout button */
+        .checkout-btn {
+            width: 100%;
+            background: #009688;
+            border: none;
+            color: #fff;
+            border-radius: 6px;
+            padding: 12px;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+
+/* payment methos */
+  .add-new-btn {
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  background: #fff;
+}
+
+.payment-option {
+  border: 1px solid #e6e6e6;
+  background: #fff;
+  padding: 14px 16px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  transition: .25s;
+  cursor: pointer;
+}
+
+.payment-option:hover {
+  /* border-color: #009688; */
+  background: #f1fdfb;
+}
+
+.payment-option.active {
+  border-color: #009688;
+  background: #f1fdfb;
+}
+
+.set-default {
+  align-self: center;
+}
+
+
+        /* Product mini cards */
+        .product-box {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 10px;
+            background: #fff;
+        }
+
+        .product-box img {
+            width: 50px;
+            height: 50px;
+            border-radius: 6px;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+
+        .product-box strong {
+            color: #000;
+            font-size: 14px;
+        }
+
+        a.continue-link {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        a.continue-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="images/logo.png" alt="Oh Materials Logo" height="40" class="me-2">
+            </a>
+    
+            <!-- Mobile toggle -->
+            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button> -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
+    
+            <!-- Nav Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="marketplace.html">Marketplace</a></li>
+                    <li class="nav-item"><a class="nav-link" href="vendor.html">Vendors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Pricing.html">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+    
+                <!-- Icons -->
+                <div class="d-flex social">
+                    <a href="#" class="nav-link text-white"><img src="images/search.png" alt=""></a>
+                    <a href="login.html" class="nav-link text-white"><img src="images/person.png" alt=""></a>
+                    <div class="position-relative">
+                        <a href="cart.html" class="nav-link text-white"><img src="images/cart.png" alt=""></a>
+                        <span id="cart-count"
+                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="margin-top:120px;">
+        <h4 class="text-center page-title">PLACE YOUR ORDER</h4>
+        <div class="row">
+            <!-- Left Column -->
+            <div class="col-lg-8">
+
+                <!-- 1. Customer Address -->
+                <div class="section-box">
+                    <div class="section-header" style="border-bottom: 1px solid #000;padding-bottom: 10px;">
+                        <h6><span class="num">1</span> CUSTOMER ADDRESS</h6>
+                        <i class="fas fa-pen"></i>
+                    </div>
+                    <p><strong>John Smith</strong><br>42 Meadow Lane Bramley Leeds, West Yorkshire, LS13 4AU, United
+                        Kingdom</p>
+                </div>
+
+                <!-- 2. Delivery Details -->
+                <div class="section-box">
+                    <div class="section-header" style="border-bottom: 1px solid #000;padding-bottom: 10px;">
+                        <h6><span class="num">2</span> DELIVERY DETAILS</h6>
+                    </div>
+                    <p>Door delivery between 24th and 28th September</p>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="product-box">
+                                <h6>Door Delivery <span class="badge"  style="margin-left: 30%;color: #00796b; "><svg style="color: #ffc107;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cursor-fill"
+                                    viewBox="0 0 16 16">
+                                    <path
+                                        d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103z"/>
+                                </svg> OH EXPRESS</span></h6>
+                                <p class="small mb-1">Delivered by BuildRight Ltd</p>
+                                <div class="d-flex align-items-center">
+                                    <img src="images/stack-wooden.jpg" alt="">
+                                    <div>
+                                        <p class="mb-0 small">Premium Mahogany Wood (2x6x12ft)</p>
+                                        <strong>£89.99</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="product-box">
+                                <h6>Door Delivery</h6>
+                                <p class="small mb-1">Fulfilled by BUA Ltd</p>
+                                <div class="d-flex align-items-center">
+                                    <img src="images/save-4.png" alt="">
+                                    <div>
+                                        <p class="mb-0 small">BUA Cement 50kg</p>
+                                        <strong>£59.99</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="text-primary small">Modify Cart</a>
+                </div>
+
+                <!-- 3. Payment Methods -->
+                <div class="section-box">
+                    <div class="section-header mb-3">
+                        <h6><span class="num">3</span> PAYMENT METHODS</h6>
+                    </div>
+                
+                    <!-- Add New Payment Method (full width) -->
+                    <div class="mb-3 justify-content-center text-center">
+                        <button class="btn btn-outline-secondary justify-content-center text-center w-40 add-new-btn" data-bs-toggle="modal"
+                            data-bs-target="#addPaymentModal">
+                            <i class="fas fa-plus me-2"></i> ADD NEW PAYMENT METHOD
+                        </button>
+                    </div>
+                
+                    <!-- Secondary inline buttons -->
+                    <div class="text-center mb-3">
+                        <button class="btn btn-outline-secondary me-2 px-4" data-bs-toggle="modal" data-bs-target="#addPaymentModal">
+                            Add card
+                        </button>
+                    
+                        <button class="btn btn-outline-secondary px-4" data-bs-toggle="modal" data-bs-target="#addPaymentModal">
+                            <i class="fab fa-paypal me-2"></i>Link PayPal
+                        </button>
+                    </div>
+                
+                    <!-- Credit / Debit Card -->
+                    <div class="payment-option active">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-credit-card me-3 fs-4 text-secondary"></i>
+                                <div>
+                                    <h6 class="mb-1">Credit / Debit card</h6>
+                                    <p class="mb-1 small text-muted">Use your Visa, Mastercard, or Verve card for instant payment.</p>
+                                    <img style="border-radius: 5px;" src="images/verve-card (2).png" width="35" height="19" class="me-1" alt="verve">
+                                    <img src="images/logos_visa.png" width="35" height="20" class="me-1" alt="visa">
+                                    <img src="images/logos_mastercard.png" width="35" height="20" alt="mastercard">
+                                </div>
+                            </div>
+                            <span class="badge bg-success rounded-pill px-3 py-2">Default</span>
+                        </div>
+                    </div>
+                
+                    <!-- PayPal -->
+                    <div class="payment-option">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div class="d-flex align-items-center">
+                                <i class="fab fa-paypal me-3 fs-4 text-primary"></i>
+                                <div>
+                                    <h6 class="mb-1">PayPal</h6>
+                                    <p class="mb-0 small text-muted">Log in securely with PayPal to complete your transaction</p>
+                                </div>
+                            </div>
+                            <a href="#" class="text-primary small set-default">Set as Default</a>
+                        </div>
+                    </div>
+                
+                    <!-- Bank Transfer -->
+                    <div class="payment-option">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-university me-3 fs-4 text-secondary"></i>
+                                <div>
+                                    <h6 class="mb-1">Direct Bank Transfer</h6>
+                                    <p class="mb-0 small text-muted">Pay directly from your bank account (processed securely)</p>
+                                </div>
+                            </div>
+                            <a href="#" class="text-primary small set-default">Set as Default</a>
+                        </div>
+                    </div>
+                
+                    <div class="mt-3 small">
+                        Need help with payment options? <a href="#" class="text-decoration-none">Contact support</a>
+                    </div>
+                </div>
+                
+                <a href="#" class="continue-link">← Continue Shopping</a>
+                
+                <!-- Add Payment Modal (optional) -->
+                <div class="modal fade" id="addPaymentModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-md modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Add New Payment Method</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Simple demo form -->
+                                <form id="addPaymentForm">
+                                    <div class="mb-3">
+                                        <label class="form-label">Cardholder Name</label>
+                                        <input type="text" class="form-control" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Card Number</label>
+                                        <input type="text" class="form-control" inputmode="numeric" maxlength="19"
+                                            placeholder="•••• •••• •••• ••••" required>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 mb-3">
+                                            <label class="form-label">Expiry</label>
+                                            <input type="text" class="form-control" placeholder="MM/YY" maxlength="5" required>
+                                        </div>
+                                        <div class="col-6 mb-3">
+                                            <label class="form-label">CVV</label>
+                                            <input type="password" class="form-control" maxlength="4" inputmode="numeric" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="makeDefault">
+                                        <label class="form-check-label" for="makeDefault">Make this my default payment method</label>
+                                    </div>
+                                    <div class="text-end">
+                                        <button type="submit" class="btn btn-primary">Save Payment Method</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="col-lg-4">
+                <div class="order-summary">
+                    <h6>ORDER SUMMARY</h6>
+                    <div class="summary-line"><span>Item’s total (2)</span><span>£149.98</span></div>
+                    <div class="summary-line"><span>Delivery fees</span><span>£5.00</span></div>
+                    <div class="summary-total d-flex justify-content-between">
+                        <span>Subtotal</span><span>£154.98</span>
+                    </div>
+
+                    <div class="promo-box">
+                        <input type="text" id="promo" placeholder="Enter code here">
+                        <button id="applyCode">Apply</button>
+                    </div>
+
+                    <button class="checkout-btn mt-3" id="checkoutBtn">Checkout (£154.98)</button>
+                    <p class="small text-muted mt-2">
+                        By proceeding, you automatically accept our
+                        <a href="#" class="text-decoration-none">Terms & Conditions</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Toggle active payment option on click
+        document.querySelectorAll(".payment-option").forEach(opt => {
+            opt.addEventListener("click", () => {
+                document.querySelectorAll(".payment-option").forEach(o => o.classList.remove("active"));
+                opt.classList.add("active");
+            });
+        });
+
+        // Demo: handle add payment form (modal)
+        document.getElementById('addPaymentForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            // In a real app you'd validate & send to server. For demo: close modal and show alert
+            var modalEl = document.getElementById('addPaymentModal');
+            var modal = bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
+            modal.hide();
+
+            // simple feedback
+            alert('New payment method saved (demo).');
+        });
+    </script>
+    <script>
+        // Checkout button
+        document.getElementById('checkoutBtn').addEventListener('click', () => {
+            alert("Redirecting to payment...");
+            window.location.href = "checkout-successful.html";
+        });
+    </script>
+</body>
+
+</html>
