@@ -7,8 +7,9 @@
     <title>Oh! Materials | Checkout</title>
 
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="dist/js/bootstrap.min.js">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -212,10 +213,42 @@
         a.continue-link:hover {
             text-decoration: underline;
         }
+
+        .loader-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            position: fixed; /* Fixes loader to cover whole screen */
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000; /* Ensure loader is on top of content */
+        }
+        .loader {
+            width: 100px;
+            height: 100px;
+            border: 15px solid #e0e0e0;
+            border-top-color: #008080;
+            border-right-color: #ffcc00;
+            border-radius: 50%;
+            animation: spin 2s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 
 <body>
+
+    <!-- 2. HTML goes here at the very top of your body -->
+    <div class="loader-container">
+      <div class="loader"></div>
+    </div>
+
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
@@ -229,9 +262,9 @@
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button> -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
-            </button>
+               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+    </button>
     
             <!-- Nav Links -->
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -283,34 +316,12 @@
 
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="product-box">
-                                <h6>Door Delivery <span class="badge"  style="margin-left: 30%;color: #00796b; "><svg style="color: #ffc107;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cursor-fill"
-                                    viewBox="0 0 16 16">
-                                    <path
-                                        d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103z"/>
-                                </svg> OH EXPRESS</span></h6>
-                                <p class="small mb-1">Delivered by BuildRight Ltd</p>
-                                <div class="d-flex align-items-center">
-                                    <img src="images/stack-wooden.jpg" alt="">
-                                    <div>
-                                        <p class="mb-0 small">Premium Mahogany Wood (2x6x12ft)</p>
-                                        <strong>£89.99</strong>
-                                    </div>
-                                </div>
+                            <div class="product-box" id="checkout-products">
                             </div>
                         </div>
 
                         <div class="col-md-6">
-                            <div class="product-box">
-                                <h6>Door Delivery</h6>
-                                <p class="small mb-1">Fulfilled by BUA Ltd</p>
-                                <div class="d-flex align-items-center">
-                                    <img src="images/save-4.png" alt="">
-                                    <div>
-                                        <p class="mb-0 small">BUA Cement 50kg</p>
-                                        <strong>£59.99</strong>
-                                    </div>
-                                </div>
+                            <div class="product-box" id="checkout-products">
                             </div>
                         </div>
                     </div>
@@ -442,10 +453,10 @@
             <div class="col-lg-4">
                 <div class="order-summary">
                     <h6>ORDER SUMMARY</h6>
-                    <div class="summary-line"><span>Item’s total (2)</span><span>£149.98</span></div>
+                  <div class="summary-line"><span>Items (<span id="itemCount">0</span>)</span><span id="itemsTotal">£0.00</span></div>
                     <div class="summary-line"><span>Delivery fees</span><span>£5.00</span></div>
                     <div class="summary-total d-flex justify-content-between">
-                        <span>Subtotal</span><span>£154.98</span>
+                        <div class="summary-line"><span>Subtotal</span><span id="finalTotal">£0.00</span></div>
                     </div>
 
                     <div class="promo-box">
@@ -487,12 +498,82 @@
         });
     </script>
     <script>
-        // Checkout button
-        document.getElementById('checkoutBtn').addEventListener('click', () => {
-            alert("Redirecting to payment...");
-            window.location.href = "checkout-successful.html";
-        });
-    </script>
+document.getElementById('checkoutBtn').addEventListener('click', () => {
+
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const deliveryFee = 5;
+
+    let total = 0;
+    cart.forEach(item => total += item.price * item.quantity);
+
+    const order = {
+        items: cart,
+        subtotal: total,
+        shipping: deliveryFee,
+        total: total + deliveryFee
+    };
+
+    // save the FINAL order for payment page
+    localStorage.setItem("final_order", JSON.stringify(order));
+
+    window.location.href = "checkout-summary.html";
+});
+</script>
+     <script>
+       window.addEventListener("load", function() {
+    const loader = document.querySelector(".loader-container");
+    // This adds a smooth fade out
+    loader.style.transition = "opacity 5s ease";
+    loader.style.opacity = "0";
+    
+    // Completely remove it from the view after fade
+    setTimeout(() => {
+        loader.style.display = "none";
+    }, 1000);
+});
+</script>
+
+<script>
+const cart = JSON.parse(localStorage.getItem("cart")) || [];
+const deliveryFee = 5;
+
+const productsContainer = document.getElementById("checkout-products");
+const itemCountEl = document.getElementById("itemCount");
+const itemsTotalEl = document.getElementById("itemsTotal");
+const finalTotalEl = document.getElementById("finalTotal");
+const checkoutBtn = document.getElementById("checkoutBtn");
+
+productsContainer.innerHTML = "";
+
+let total = 0;
+let totalQty = 0;
+
+cart.forEach(item => {
+    const subtotal = item.price * item.quantity;
+    total += subtotal;
+    totalQty += item.quantity;
+
+    productsContainer.innerHTML += `
+        <div class="product-box d-flex align-items-center">
+            <img src="${item.image}">
+            <div class="ms-2 flex-grow-1">
+                <p class="mb-0 small">${item.name}</p>
+                <strong>£${item.price.toFixed(2)} x ${item.quantity}</strong>
+            </div>
+            <span>£${subtotal.toFixed(2)}</span>
+        </div>
+    `;
+});
+
+const grandTotal = total + deliveryFee;
+
+itemCountEl.textContent = totalQty;
+itemsTotalEl.textContent = "£" + total.toFixed(2);
+finalTotalEl.textContent = "£" + grandTotal.toFixed(2);
+checkoutBtn.textContent = "Checkout (£" + grandTotal.toFixed(2) + ")";
+</script>
+
+
 </body>
 
 </html>

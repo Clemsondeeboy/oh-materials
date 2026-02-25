@@ -14,9 +14,7 @@
     <link rel="stylesheet" href="font-awesome/css/solid.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="user-dashboard.css">
-   
 </head>
-
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
@@ -548,106 +546,178 @@
 
 </div>
 
-<!-- ORDERS PAGE -->
+<!-- ORDERS PAGE 1-->
 <div id="page-orders" class="page-section">
+
     <div class="p-4 bg-white rounded-4 shadow-sm">
         <h4 class="fw-bold mb-3">Your Orders</h4>
-    <div class="top-contents d-flex">
-        <span class="top-con1 p-2"> Ongoing/Delivered</span>
-        <span class="top-con2 p-2">Cancelled/ Returned</span>
-        
-    </div>
-    <div class="card-order-details mt-5 d-flex">                       
-        <div class="order-card">
-            <div class="imgpart">
-                <img class=" rounded-3 m-2" width="90" height="60" src="images/save-4.png" alt="">
-            </div>
-        <div class="orders-det p-2">
-            <h6>BUA Cement 50kg
-            </h6>
-            <p>Order 1467635852</p>
-            <span>Delivered</span><br>
-            <input style="border: none;outline-style: none;padding-top:10px;padding-bottom:5px;" type="datetime" name="date" id="date" placeholder="on 23-09">
+
+        <!-- Tabs -->
+        <div class="top-contents">
+            <span class="tab-btn active" data-filter="delivered">Ongoing / Delivered</span>
+            <span class="tab-btn" data-filter="cancelled">Cancelled / Returned</span>
+            <div class="tab-indicator"></div>
         </div>
+
+
+        <!-- ================= ORDERS ================= -->
+
+        <!-- DELIVERED -->
+        <div class="card-order-details order-item" data-status="delivered">
+            <div class="order-card">
+                <img src="images/save-4.png">
+                <div class="orders-det">
+                    <h6>BUA Cement 50kg</h6>
+                    <p>Order 1467635852</p>
+                    <span class="status delivered">Delivered</span>
+                    <br>
+                    <small>on 23-09</small>
+                </div>
+            </div>
+            <a href="#">See details</a>
         </div>
-        <a href="#">see details</a>
-    </div>
-    <div class="card-order-details mt-5 d-flex">
-        <div class="order-card">
-            <div class="imgpart">
-                <img class=" rounded-3 m-2" width="90" height="60" src="images/stack-wooden.jpg" alt="">
+
+        <div class="card-order-details order-item" data-status="delivered">
+            <div class="order-card">
+                <img src="images/stack-wooden.jpg">
+                <div class="orders-det">
+                    <h6>Mahogany wood</h6>
+                    <p>Order 3585214676</p>
+                    <span class="status delivered">Delivered</span>
+                    <br>
+                    <small>on 23-09</small>
+                </div>
             </div>
-            <div class="orders-det p-2">
-                <h6>Mahogany wood
-                </h6>
-                <p>Order 3585214676</p>
-                <span>Delivered</span><br>
-                <input style="border: none;outline-style: none;padding-top:10px;padding-bottom:5px;" type="datetime" name="date" id="date"
-                    placeholder="on 23-09">
-            </div>
+            <a href="#">See details</a>
         </div>
-        <a href="#">see details</a>
-    </div>
-    <div class="card-order-details mt-5 d-flex">
-    <div class="order-card">
-            <div class="imgpart">
-            <img class=" rounded-3 m-2" width="90" height="60" src="images/save-2.png" alt="">
+
+        <div class="card-order-details order-item" data-status="delivered">
+            <div class="order-card">
+                <img src="images/save-2.png">
+                <div class="orders-det">
+                    <h6>Steel rods</h6>
+                    <p>Order 9274635852</p>
+                    <span class="status delivered">Delivered</span>
+                    <br>
+                    <small>on 23-09</small>
+                </div>
             </div>
-            <div class="orders-det p-2">
-                <h6>Steel rods
-                </h6>
-                <p>9274635852</p>
-                <span>Delivered</span><br>
-                <input style="border: none;outline-style: none;padding-top:10px;padding-bottom:5px;" type="datetime" name="date" id="date" placeholder="on 23-09">
-            </div>
+            <a href="#">See details</a>
         </div>
-        <a href="#">see details</a>
-    </div>
-    <div class="card-order-details mt-5 d-flex">
-        <div class="order-card">
-            <div class="imgpart">
-                <img class=" rounded-3 m-2" width="90" height="60" src="images/save-4.png" alt="">
+        <div class="card-order-details order-item" data-status="delivered">
+            <div class="order-card">
+                <img src="images/save-4.png">
+                <div class="orders-det">
+                    <h6>BUA Cement 50kg</h6>
+                    <p>Order 1467635852</p>
+                    <span class="status delivered">Delivered</span>
+                    <br>
+                    <small>on 23-09</small>
+                </div>
             </div>
-            <div class="orders-det p-2">
-                <h6>BUA Cement 50kg
-                </h6>
-                <p>Order 1467635852</p>
-                <span>Delivered</span><br>
-                <input style="border: none;outline-style: none;padding-top:10px;padding-bottom:5px;" type="datetime" name="date" id="date" placeholder="on 23-09">
+            <a href="#">See details</a>
+        </div>
+
+        <div class="card-order-details order-item" data-status="delivered">
+            <div class="order-card">
+                <img src="images/stack-wooden.jpg">
+                <div class="orders-det">
+                    <h6>Mahogany wood</h6>
+                    <p>Order 3585214676</p>
+                    <span class="status delivered">Delivered</span>
+                    <br>
+                    <small>on 23-09</small>
+                </div>
             </div>
+            <a href="#">See details</a>
         </div>
-        <a href="#">see details</a>
-    </div>
-    <div class="card-order-details mt-5 d-flex">
-        <div class="order-card">
-            <div class="imgpart">
-                <img class=" rounded-3 m-2" width="90" height="60" src="images/save-2.png" alt="">
+
+        <div class="card-order-details order-item" data-status="delivered">
+            <div class="order-card">
+                <img src="images/save-2.png">
+                <div class="orders-det">
+                    <h6>Steel rods</h6>
+                    <p>Order 9274635852</p>
+                    <span class="status delivered">Delivered</span>
+                    <br>
+                    <small>on 23-09</small>
+                </div>
             </div>
-            <div class="orders-det p-2">
-                <h6>Steel rods
-                </h6>
-                <p>Order 9274635852</p>
-                <span>Delivered</span><br>
-                <input style="border: none;outline-style: none;padding-top:10px;padding-bottom:5px;" type="datetime" name="date" id="date" placeholder="on 23-09">
+            <a href="#">See details</a>
+        </div>
+
+
+        <!-- CANCELLED -->
+        <div class="card-order-details order-item" data-status="cancelled">
+            <div class="order-card">
+                <img src="images/stack-wooden.jpg">
+                <div class="orders-det">
+                    <h6>Mahogany wood</h6>
+                    <p>Order 3585214676</p>
+                    <span class="status cancelled">Cancelled Payment Unsuccessful</span>
+                    <br>
+                    <small>on 23-09</small>
+                </div>
             </div>
+            <a href="#">See details</a>
         </div>
-        <a href="#">see details</a>
-    </div>
-    <div class="card-order-details mt-5 d-flex">
-        <div class="order-card">
-        <div class="imgpart">
-            <img class=" rounded-3 m-2" width="90" height="60" src="images/stack-wooden.jpg" alt="">
+
+        <div class="card-order-details order-item" data-status="cancelled">
+            <div class="order-card">
+                <img src="images/save-2.png">
+                <div class="orders-det">
+                    <h6>Steel rods</h6>
+                    <p>Order 9274635852</p>
+                    <span class="status cancelled">Refunded</span>
+                    <br>
+                    <small>on 23-09-2026</small>
+                </div>
+            </div>
+            <a href="#">See details</a>
         </div>
-        <div class="orders-det p-2">
-            <h6>Mahogany wood
-            </h6>
-            <p>Order 3585214676</p>
-            <span>Delivered</span><br>
-            <input style="border: none;outline-style: none;padding-top:10px;padding-bottom:5px;" type="datetime" name="date" id="date" placeholder="on 23-09">
+
+
+        <div class="card-order-details order-item" data-status="cancelled">
+            <div class="order-card">
+                <img src="images/save-4.png">
+                <div class="orders-det">
+                    <h6>BUA Cement 50kg</h6>
+                    <p>Order 1467635852</p>
+                    <span class="status cancelled">Refunded</span>
+                    <br>
+                    <small>on 23-09-2026</small>
+                </div>
+            </div>
+            <a href="#">See details</a>
         </div>
-    </div>
-    <a href="#">see details</a>
-    </div>
+        <div class="card-order-details order-item" data-status="cancelled">
+            <div class="order-card">
+                <img src="images/save-2.png">
+                <div class="orders-det">
+                    <h6>Steel rods</h6>
+                    <p>Order 9274635852</p>
+                    <span class="status cancelled">Cancelled Payment Unsuccessful</span>
+                    <br>
+                    <small>on 23-09-2026</small>
+                </div>
+            </div>
+            <a href="#">See details</a>
+        </div>
+
+        <div class="card-order-details order-item" data-status="cancelled">
+            <div class="order-card">
+                <img src="images/save-4.png">
+                <div class="orders-det">
+                    <h6>BUA Cement 50kg</h6>
+                    <p>Order 1467635852</p>
+                    <span class="status cancelled">Refunded</span>
+                    <br>
+                    <small>on 23-09-2026</small>
+                </div>
+            </div>
+            <a href="#">See details</a>
+        </div>
+
     </div>
 </div>
 
@@ -1018,6 +1088,48 @@
         console.log("Switching to:", pageId);
 
     }
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+    const tabs = document.querySelectorAll(".tab-btn");
+    const indicator = document.querySelector(".tab-indicator");
+
+    function moveIndicator(tab){
+        indicator.style.width = tab.offsetWidth + "px";
+        indicator.style.left = tab.offsetLeft + "px";
+    }
+
+    function filterOrders(status){
+
+        document.querySelectorAll(".order-item").forEach(order=>{
+            order.classList.remove("active-order");
+
+            if(order.dataset.status === status){
+                order.classList.add("active-order");
+            }
+        });
+    }
+
+    // initial tab
+    const activeTab = document.querySelector(".tab-btn.active");
+    moveIndicator(activeTab);
+    filterOrders(activeTab.dataset.filter);
+
+    // switching tabs
+    tabs.forEach(tab=>{
+        tab.addEventListener("click", function(){
+
+            tabs.forEach(t=>t.classList.remove("active"));
+            this.classList.add("active");
+
+            moveIndicator(this);
+            filterOrders(this.dataset.filter);
+        });
+    });
+
+});
 </script>
 
 

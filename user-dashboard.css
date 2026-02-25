@@ -281,10 +281,12 @@ top: auto !important;
         font-style: Regular;
         leading-trim: NONE;
     }
+    .sidebar .nav-link { color:#555; font-weight:500; border-radius:8px; width: 30% !important;}
+.sidebar .nav-link.active { background:#178A87; color:#fff; width: 30% !important;}
 }
  #dashboard { margin-top: 6.5rem !important; }
-.sidebar .nav-link { color:#555; font-weight:500; border-radius:8px; }
-.sidebar .nav-link.active { background:#178A87; color:#fff; }
+.sidebar .nav-link { color:#555; font-weight:500; border-radius:8px; width: 100%;}
+.sidebar .nav-link.active { background:#178A87; color:#fff; width: 100%;}
 .sidebar { min-height:40vh; }
 .page-section { display:none; }
 .page-section.active { display:block; }
@@ -332,57 +334,7 @@ top: auto !important;
     color: #fff;
     }
 }
-.card-order-details{
-    border-radius: 5px;
-    border: 1px solid #94929265;
-    justify-content: space-between;
-    height: 168px;
-    justify-content: space-between;
-    angle: 0 deg;
-    opacity: 1;
-    border-radius: 12px;
-    border-width: 1px;
-    padding: 10px 20px;
 
-    a{
-        text-decoration: none;
-        color: #f5ae2a;
-        font-family: Poppins;
-        font-weight: 400;
-        font-size: 18px;
-        padding-top: 3.5rem;
-    }
-}
-.order-card{
-    display: flex;
-
-    .imgpart img{
-        width: 128px;
-        height: 128px;
-        angle: 0 deg;
-        opacity: 1;
-        border-radius: 12px;
-    }
-}
-.top-contents{
-    .top-con1{
-      font-family: Poppins;
-    font-weight: 400;
-    font-style: Regular;
-    font-size: 16px;
-    color: rgba(244, 183, 55, 1);
-    border-bottom: 1px solid rgba(244, 183, 55, 1);
-    }
-    .top-con2{
-     font-family: Poppins;
-    font-weight: 400;
-    font-style: Regular;
-    font-size: 16px;
-    border-bottom: 1px solid rgba(0,0,0,0.6);
-    color: rgba(0,0,0,0.6);
-    width: 100%;
-    }
-}
 
 .inbox-empty-card {
     background: #fff;
@@ -731,4 +683,151 @@ h6 {
     line-height: 100%;
     letter-spacing: 0%;
     text-align: center;
+}
+
+
+
+.card-order-details{
+    border-radius: 5px;
+    border: 1px solid #94929265;
+    justify-content: space-between;
+    height: 168px;
+    justify-content: space-between;
+    angle: 0 deg;
+    opacity: 1;
+    border-radius: 12px;
+    border-width: 1px;
+    padding: 10px 20px;
+
+    a{
+        text-decoration: none;
+        color: #f5ae2a;
+        font-family: Poppins;
+        font-weight: 400;
+        font-size: 18px;
+        padding-top: 3.5rem;
+    }
+}
+.order-card{
+    display: flex;
+
+    .imgpart img{
+        width: 128px;
+        height: 128px;
+        angle: 0 deg;
+        opacity: 1;
+        border-radius: 12px;
+    }
+}
+.top-contents{
+     position:relative;
+    display:flex;
+    gap:40px;
+    border-bottom:2px solid #ddd;
+    padding-bottom:12px;
+    margin-bottom:20px;
+    /* .top-con1{
+      font-family: Poppins;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 16px;
+    color: rgba(244, 183, 55, 1);
+    border-bottom: 1px solid rgba(244, 183, 55, 1);
+    }
+    .top-con2{
+     font-family: Poppins;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(0,0,0,0.6);
+    color: rgba(0,0,0,0.6);
+    width: 100%;
+    } */
+}
+
+.top-contents{
+    position:relative;
+    display:flex;
+    gap:40px;
+    border-bottom:2px solid #ddd;
+    padding-bottom:12px;
+    margin-bottom:20px;
+}
+
+.tab-btn{
+    cursor:pointer;
+    color:#777;
+    font-weight:500;
+}
+
+.tab-btn.active{
+    color:#f68b1e;
+}
+
+.tab-indicator{
+    position:absolute;
+    bottom:-2px;
+    height:3px;
+    background:#f68b1e;
+    transition:all .35s ease;
+}
+
+/* cards */
+.card-order-details{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 12px;
+    margin: 20px 0px;
+    border-bottom:1px solid #eee;
+}
+
+.order-card{
+    display:flex;
+    gap:15px;
+    align-items:center;
+}
+
+.order-card img{
+    width:90px;
+    height:60px;
+    object-fit:cover;
+    border-radius:8px;
+}
+
+.orders-det h6{
+    margin:0;
+    font-weight:600;
+}
+
+.orders-det p{
+    margin:0;
+    color:#777;
+    font-size:14px;
+}
+
+.orders-det small{
+    color:#999;
+}
+
+/* status badges */
+.status{
+    display:inline-block;
+    font-size:12px;
+    padding:4px 8px;
+    border-radius:4px;
+    color:white;
+    margin:4px 0;
+}
+span.delivered{ background:#16a085; }
+span.cancelled{ background:#e74c3c; width: 75%;}
+
+/* default: hide every order */
+.order-item{
+    display:none !important;
+}
+
+/* visible orders */
+.order-item.active-order{
+    display:flex !important;
 }
