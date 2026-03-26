@@ -18,42 +18,121 @@
     <link rel="stylesheet" href="font-awesome/css/all.min.css">
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="user-dashboard.css">
 
     <style>
-        .payment-sucessful{
-            margin: auto;
-            align-items: center;
-            justify-content: center;
-        }
-       
-        .success-box {
-            background: #fff;
-            padding: 40px;
-            align-items: center;
-            justify-content: center;
-            height: 30rem;
-             margin: auto;
-            text-align: center;
-            border-radius: 12px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-        }
-    
-        .success-icon {
-            font-size: 60px;
-            color: #00a58c;
-        }
-    
-        h3 {
-            margin-top: 15px;
-            color: #333;
-        }
-    
-        p {
-            color: #555;
-            font-size: 14px;
-            margin-top: 10px;
-        }
+        .success-wrapper{
+    text-align:center;
+    margin-top:120px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+/* ICON */
+.success-icon{
+    position:relative;
+    width:140px;
+    height:140px;
+    margin:0 auto 20px;
+}
+
+.checkmark{
+    width:140px;
+    height:140px;
+}
+
+/* circle animation */
+.circle{
+    fill:#16a085;
+    transform:scale(0);
+    transform-origin:center;
+    animation:popCircle .5s ease forwards;
+}
+
+/* tick animation */
+.tick{
+    fill:none;
+    stroke:white;
+    stroke-width:8;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    stroke-dasharray:150;
+    stroke-dashoffset:150;
+    animation:drawTick .6s .4s ease forwards;
+}
+
+/* animations */
+@keyframes popCircle{
+    0%{ transform:scale(0); }
+    80%{ transform:scale(1.1); }
+    100%{ transform:scale(1); }
+}
+
+@keyframes drawTick{
+    to{ stroke-dashoffset:0; }
+}
+
+/* CONFETTI PARTICLES */
+.confetti{
+    position:absolute;
+    width:14px;
+    height:14px;
+    opacity:0;
+    border-radius:3px;
+    box-shadow:0 0 8px rgba(255,255,255,0.8);
+}
+
+/* different colors */
+.confetti:nth-child(1){ background:#FFD700; }
+.confetti:nth-child(2){ background:#FF7A00; }
+.confetti:nth-child(3){ background:#00C2FF; }
+.confetti:nth-child(4){ background:#7BFF00; }
+.confetti:nth-child(5){ background:#FF00B7; }
+.confetti:nth-child(6){ background:#FFFFFF; }
+
+/* start from center */
+.confetti-container{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* animation trigger */
+.pop{
+    animation:explode 1.4s cubic-bezier(.15,.89,.32,1.28);
+}
+
+/* REAL burst motion */
+@keyframes explode{
+    0%{
+        transform:translate(0,0) scale(.2) rotate(0deg);
+        opacity:1;
+    }
+    40%{
+        opacity:1;
+    }
+    100%{
+        transform:
+            translate(
+                calc(120px * (var(--x))),
+                calc(120px * (var(--y)))
+            )
+            rotate(720deg)
+            scale(1.3);
+        opacity:0;
+    }
+}
+
+/* TEXT */
+#successText{
+    color:#16a085;
+    transition:color .6s ease;
+}
+
+.yellow{
+    color:#f4c542;
+}
     
         .btn-shop {
             background: #00a58c;
@@ -151,17 +230,38 @@
 
 
     <section class="payment-sucessful">
-       <div class="container">
-         <div class="success-box">
-        <div class="success-icon">
-            <i class="fas fa-check-circle"></i>
+       <div class="success-wrapper">
+
+    <div class="success-icon">
+        <svg viewBox="0 0 120 120" class="checkmark">
+            <circle cx="60" cy="60" r="50" class="circle"/>
+            <path d="M35 65 L55 85 L85 40" class="tick"/>
+        </svg>
+
+        <!-- confetti flowers -->
+        <div class="confetti-container">
+            <span class="confetti"></span>
+            <span class="confetti"></span>
+            <span class="confetti"></span>
+            <span class="confetti"></span>
+            <span class="confetti"></span>
+            <span class="confetti"></span>
         </div>
-        <h3>Order Placed Successfully!</h3>
-        <p>Thank you for your purchase. Your items will be delivered soon.</p>
-        <a href="marketplace.html" class="btn-shop">Continue Shopping</a>
     </div>
-       </div>
+
+    <h2 id="successText">Payment successful !</h2>
+    <p>An email has been sent to you</p>
+
+</div>
     </section>
+
+    <section class="recently-viewed py-5 marketplace-bottom">
+    <div class="container">
+        <h5 class="fw-bold mb-4">RECENTLY VIEWED</h5>
+        <div class="row" id="recently-viewed-container"></div>
+        <!-- JS will inject cards here -->
+    </div>
+</section>
     
 <!-- Footer -->
 <footer class="footer">
@@ -220,6 +320,7 @@
 </footer>
 
     <script src="js/script.js"></script>
+    <script src="js/dashboard.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
     <script src="font-awesome/js/all.min.js"></script>
     <script>
@@ -239,5 +340,36 @@
     }, 1000);
 });
     </script>
+
+    <script>
+const confetti = document.querySelectorAll(".confetti");
+const text = document.getElementById("successText");
+
+function burst(){
+    confetti.forEach(c=>{
+        // random direction
+        const x = (Math.random()*2 - 1).toFixed(2);
+        const y = (Math.random()*2 - 1).toFixed(2);
+
+        c.style.setProperty('--x', x);
+        c.style.setProperty('--y', y);
+
+        c.classList.remove("pop");
+        void c.offsetWidth;
+        c.classList.add("pop");
+    });
+}
+
+/* pop every second */
+setInterval(burst, 1000);
+
+/* first burst immediately */
+setTimeout(burst, 500);
+
+/* change text color */
+setTimeout(()=>{
+    text.classList.add("yellow");
+},2000);
+</script>
 </body>
 </html>

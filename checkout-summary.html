@@ -16,7 +16,8 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="font-awesome/css/all.min.css">
-
+    <link rel="stylesheet" href="font-awesome/css/solid.css">
+    <link rel="stylesheet" href="font-awesome/css/brands.css">
     <link rel="stylesheet" href="style.css">
 
     <style>
@@ -60,6 +61,7 @@
 .checkout-container{
     display:flex;
     width: 100%;
+    padding: 100px 30px;
     min-height:100vh;
 }
 
@@ -68,6 +70,7 @@
     width:45%;
     background:#f7f7f7;
     padding:40px;
+    box-shadow: 6px 4px 6px 4px #dedede;
 }
 
 .brand{
@@ -126,6 +129,7 @@
     width:55%;
     background:white;
     padding:50px;
+    box-shadow: 6px 4px 6px 4px #dedede;
 }
 
 input{
@@ -134,11 +138,26 @@ input{
     margin:8px 0 20px;
     border:1px solid #ddd;
     border-radius:8px;
+    outline-style: none;
+}
+form{
+    margin: 10px 0px;
+}
+form input{
+     margin: 0px;
+}
+select{
+    width: 100%;
+    padding: 8px 0 20px;
+    border:1px solid #ddd;
+    color: #80807f;
+    border-radius:8px;
+    outline-style: none;
 }
 
 .card-row{
     display:flex;
-    gap:10px;
+    /* gap:10px; */
 }
 
 .apple-pay{
@@ -188,6 +207,18 @@ input{
         order:1;
     }
 }
+.shipping{
+    color: #a6a6a6;
+    font-size: 16px;
+   
+}
+.ship{
+    color: #a6a6a6;
+    font-size: 16px;
+    border-top: 1px solid #a6a6a6;
+    border-bottom: 1px solid #a6a6a6;
+    padding: 15px 0px;
+}
     </style>
 
 </head>
@@ -219,7 +250,7 @@ input{
             <!-- Nav Links -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="marketplace.html">Marketplace</a></li>
                     <li class="nav-item"><a class="nav-link" href="vendor.html">Vendors</a></li>
@@ -248,10 +279,11 @@ input{
     <!-- LEFT : ORDER SUMMARY -->
     <div class="checkout-summary">
 
-       <h2 class="brand">Oh! Materials <span class="badge">ORDER SUMMARY</span></h2>
-
+       <h2 class="brand">Powdur <span class="badge">TEST-MODE  SUMMARY</span></h2>
+    <div>
+        <p>Pay Powdur</p>
         <h1 class="price" id="orderTotal">£0.00</h1>
-
+    </div>
         <div id="payment-products"></div>
 
         <div class="summary-line">
@@ -259,8 +291,11 @@ input{
             <span id="paymentSubtotal">£0.00</span>
         </div>
 
-        <div class="summary-line">
-            <span>Shipping</span>
+        <div class="summary-line ship">
+            <div class="shipping">
+                <span>Shipping</span><br>
+            <span>Ground-Shipping (3-5 business days)</span>
+            </div>
             <span id="paymentShipping">£0.00</span>
         </div>
 
@@ -269,36 +304,64 @@ input{
             <span id="paymentGrandTotal">£0.00</span>
         </div>
 
+        <div class="poweredbystript">
+            <div class="stripe p-2"><p>Powered by <strong>Stripe</strong>  |  Terms & privacy</p></div> 
+        </div>
     </div>
 
 
-    <!-- RIGHT : PAYMENT -->
-    <div class="checkout-payment">
+   <!-- RIGHT : PAYMENT -->
+<div class="checkout-payment">
 
-        <button class="apple-pay"> Pay</button>
+    <button type="button" class="apple-pay">
+        <i class="fa-brands fa-apple"></i> Pay
+    </button>
 
-        <div class="divider">Or pay with card</div>
+    <div class="divider">Or pay with card</div>
 
-        <label>Email</label>
-        <input type="email">
+    <form id="checkoutForm" method="post" novalidate>
 
-        <label>Name</label>
-        <input type="text">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" placeholder="Enter your email" required>
 
-        <label>Address</label>
-        <input type="text">
+        <label for="name">Shipping Address</label>
+<input type="text" name="name" id="name" placeholder="Name" required>
 
-        <label>Card information</label>
-        <input type="text" placeholder="1234 1234 1234 1234">
+<select name="state" id="state" required>
+    <option value="">Select Country</option>
+    <option value="United States">United States</option>
+    <option value="Canada">Canada</option>
+    <option value="Nigeria">Nigeria</option>
+    <option value="United Kingdom">United Kingdom</option>
+</select>
 
-        <div class="card-row">
-            <input type="text" placeholder="MM/YY">
-            <input type="text" placeholder="CVC">
+<input type="text" name="address" id="address" placeholder="Address" required>
+
+<p id="manualAddressToggle" style="font-size: 15px; color: #a6a6a6; text-decoration: underline; cursor: pointer; margin-top: 10px;">
+    Enter address manually
+</p>
+
+<div id="manualAddressFields" style="display: none; margin-top: 15px;margin-bottom: 30px;">
+    <input type="text" id="city" name="city" placeholder="City">
+    <input type="text" id="postalCode" name="postalCode" placeholder="Postal Code">
+    <input type="text" id="apartment" name="apartment" placeholder="Apartment, suite, etc. (optional)">
+</div>
+
+        <div class="payment-form">
+            <label for="cardNumber">Payment Details</label>
+            <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 1234 1234 1234" required>
+
+            <div class="card-row">
+                <input type="text" id="expiry" name="expiry" placeholder="MM/YY" required>
+                <input type="text" id="cvc" name="cvc" placeholder="CVC" required>
+            </div>
         </div>
 
-        <button class="pay-btn" id="payNowBtn">Pay £0.00</button>
+        <button type="submit" class="pay-btn" id="payNowBtn">Pay £0.00</button>
 
-    </div>
+    </form>
+
+</div>
 
 </div>
     </section>
@@ -362,14 +425,37 @@ input{
     <script src="js/script.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
     <script src="font-awesome/js/all.min.js"></script>
+
     <script>
-document.getElementById("payNowBtn").addEventListener("click", () => {
+const toggle = document.getElementById("manualAddressToggle");
+const manualFields = document.getElementById("manualAddressFields");
+
+toggle.addEventListener("click", function () {
+    if (manualFields.style.display === "none") {
+        manualFields.style.display = "block";
+        toggle.textContent = "Hide manual address";
+    } else {
+        manualFields.style.display = "none";
+        toggle.textContent = "Enter address manually";
+    }
+});
+</script>
+
+<script>
+document.getElementById("checkoutForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    if (!this.checkValidity()) {
+        this.reportValidity();
+        return;
+    }
+
     alert("Payment Successful 🎉");
 
     localStorage.removeItem("cart");
     localStorage.removeItem("final_order");
 
-    window.location.href = "index.html";
+    window.location.href = "checkout-successful.html";
 });
 </script>
     <script>
